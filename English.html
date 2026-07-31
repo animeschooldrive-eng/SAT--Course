@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SAT English Masterclass | W3Schools Style Reference</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <header class="site-header">
+    <div class="nav-wrapper">
+      <div class="brand-logo">SAT<span>Prep</span></div>
+      <div class="header-links">
+        <a href="index.html" class="nav-tab-btn">Home</a>
+        <a href="math.html" class="nav-tab-btn">Math Section</a>
+        <a href="english.html" class="nav-tab-btn active">English Section</a>
+      </div>
+      <a href="https://www.youtube.com/channel/UC9BNz7FxEPpVb0heLYmo2nQ" target="_blank" rel="noopener noreferrer" class="btn-sub">YouTube Channel</a>
+    </div>
+  </header>
+
+  <div class="page-wrapper">
+    
+    <aside class="sidebar">
+      <div class="sidebar-section">
+        <h3 class="sidebar-title">ENGLISH MODULES</h3>
+        <ul class="sidebar-menu">
+          <li><button id="btn-reading" class="active" onclick="switchPage('reading')">Reading & Comprehension</button></li>
+          <li><button id="btn-grammar" onclick="switchPage('grammar')">Grammar & Conventions</button></li>
+          <li><button id="btn-vocabulary" onclick="switchPage('vocabulary')">Words in Context</button></li>
+          <li><button id="btn-englishhacks" onclick="switchPage('englishhacks')">SAT English Hacks</button></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      
+      <section id="reading" class="page-section active">
+        <div class="hero-box">
+          <h1>Reading & Comprehension</h1>
+          <p>Master central ideas, command of evidence, and information synthesis.</p>
+        </div>
+        <div class="concept-card">
+          <h3 class="concept-title">Quick Lesson (YouTube Short)</h3>
+          <div class="short-container">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?enablejsapi=1" title="YouTube short player" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="next-page-box">
+          <button onclick="switchPage('reading-prac')" class="next-btn">Next Page: Practice Questions &rarr;</button>
+        </div>
+      </section>
+
+      <section id="reading-prac" class="page-section">
+        <div class="hero-box">
+          <h1>Reading: Practice Questions</h1>
+          <p>Test your ability to analyze text structure and textual evidence.</p>
+        </div>
+        <div class="concept-card">
+          <h3 class="concept-title">Question 1</h3>
+          <p class="concept-desc">Which choice best states the main idea of the passage?</p>
+        </div>
+        <div class="next-page-box">
+          <button onclick="switchPage('reading')" class="next-btn secondary-btn">&larr; Back to Video Lesson</button>
+        </div>
+      </section>
+
+      <section id="grammar" class="page-section">
+        <div class="hero-box">
+          <h1>Grammar & Conventions</h1>
+          <p>Learn standard English punctuation, sentence boundaries, and agreement rules.</p>
+        </div>
+        <div class="concept-card">
+          <h3 class="concept-title">Quick Lesson (YouTube Short)</h3>
+          <div class="short-container">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?enablejsapi=1" title="YouTube short player" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+      </section>
+
+      <section id="vocabulary" class="page-section">
+        <div class="hero-box">
+          <h1>Words in Context</h1>
+          <p>Strategies for figuring out precise word meanings based on surrounding text clues.</p>
+        </div>
+        <div class="concept-card">
+          <h3 class="concept-title">Quick Lesson (YouTube Short)</h3>
+          <div class="short-container">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?enablejsapi=1" title="YouTube short player" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+      </section>
+
+      <section id="englishhacks" class="page-section">
+        <div class="hero-box">
+          <h1>SAT English Hacks</h1>
+          <p>Speed tactics and elimination tricks to boost your verbal module score.</p>
+        </div>
+        <div class="concept-card">
+          <h3 class="concept-title">Quick Lesson (YouTube Short)</h3>
+          <div class="short-container">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?enablejsapi=1" title="YouTube short player" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 SAT Prep Masterclass. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

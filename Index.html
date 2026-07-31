@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SAT Prep Masterclass | Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Widescreen Video Container for Home Screen */
+    .video-container-wide {
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      margin: 1.5rem auto;
+      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+      height: 0;
+      background-color: #000;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border: 2px solid #dee2e6;
+    }
+    .video-container-wide iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+  
+  <header class="site-header">
+    <div class="nav-wrapper">
+      <div class="brand-logo">SAT<span>Prep</span></div>
+      <div class="header-links">
+        <a href="index.html" class="nav-tab-btn active">Home</a>
+        <a href="math.html" class="nav-tab-btn">Math Section</a>
+        <a href="english.html" class="nav-tab-btn">English Section</a>
+      </div>
+      <a href="https://www.youtube.com/channel/UC9BNz7FxEPpVb0heLYmo2nQ" target="_blank" rel="noopener noreferrer" class="btn-sub">YouTube Channel</a>
+    </div>
+  </header>
+
+  <div class="page-wrapper" style="justify-content: center;">
+    <main class="main-content" style="text-align: center; max-width: 1000px; padding: 4rem 2rem;">
+      <div class="hero-box">
+        <h1>Welcome to SAT Masterclass</h1>
+        <p>Your ultimate destination for high-impact video lessons, strategies, and practice problems to ace the digital SAT.</p>
+      </div>
+
+      <div class="concept-card" style="text-align: left; margin-top: 2rem;">
+        <h3 class="concept-title" style="text-align: center;">Course Intro Video</h3>
+        <p class="concept-desc" style="text-align: center; margin-bottom: 1rem;">Watch this quick overview to learn how to make the most of this masterclass.</p>
+        <div class="video-container-wide">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/zM-ndGlAaQo?si=bQiJ55Qj0HrLix4A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 15px; justify-content: center; margin-top: 2.5rem;">
+        <a href="math.html" class="next-btn" style="text-decoration: none;">Explore Math Section &rarr;</a>
+        <a href="english.html" class="next-btn" style="text-decoration: none; background-color: #6c757d;">Explore English Section &rarr;</a>
+      </div>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 SAT Prep Masterclass. All rights reserved.</p>
+  </footer>
+</body>
+</html>

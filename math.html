@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="math.css">
 </head>
 <body>
   
@@ -40,7 +41,7 @@
                 <ul id="triangles-submenu" class="sidebar-menu" style="display: block; padding-left: 15px; margin-top: 5px;">
                   <li><button id="btn-rule180" onclick="switchPage('rule180')">└ Rule of 180</button></li>
                   <li><button id="btn-inequality" onclick="switchPage('inequality')">└ Triangle Inequality Theorem</button></li>
-                  <li><button id="btn-types" class="active" onclick="switchPage('types')">└ Type of Triangles</button></li>
+                  <li><button id="btn-types" onclick="switchPage('types')">└ Type of Triangles</button></li>
                   <li><button id="btn-exterior" onclick="switchPage('exterior')">└ Exterior angle theorem</button></li>
                   <li><button id="btn-pythagorean" onclick="switchPage('pythagorean')">└ Pythagorean Theorem / Triplets</button></li>
                   <li><button id="btn-triangarea" onclick="switchPage('triangarea')">└ Area</button></li>
@@ -60,81 +61,15 @@
 
     <main class="main-content">
       
-      <section id="types" class="page-section active">
-        <div class="hero-box">
-          <h1>Type of Triangles</h1>
-          <p>Equilateral, Isosceles, Scalene, Acute, Right, and Obtuse classifications.</p>
-        </div>
-        <div class="concept-card">
-          <h3 class="concept-title">Quick Lesson (YouTube Short)</h3>
-          <div class="short-container">
-            <iframe src="" title="YouTube short player" frameborder="0" allowfullscreen></iframe>
-          </div>
-        </div>
-        <div class="next-page-box">
-          <button onclick="switchPage('types-prac')" class="next-btn">Next Page: Practice Questions &rarr;</button>
-        </div>
-      </section>
-
-      <section id="types-prac" class="page-section">
-        <div class="hero-box">
-          <h1>Type of Triangles: Practice Questions</h1>
-          <p>Test your understanding of equilateral and isosceles properties.</p>
-        </div>
-        <div class="concept-card">
-          <h3 class="concept-title">Question 1</h3>
-          <p class="concept-desc">An isosceles triangle has a vertex angle measuring 40°. What is the measure of each base angle?</p>
-          <div class="practice-options" style="margin-top: 10px;">
-            <p>A) 40°</p>
-            <p>B) 70°</p>
-            <p>C) 50°</p>
-            <p>D) 100°</p>
-          </div>
-        </div>
-        <div class="next-page-box">
-          <button onclick="switchPage('types')" class="next-btn secondary-btn">&larr; Back to Video Lesson</button>
-        </div>
-      </section>
-
-      <section id="inequality" class="page-section">
-        <div class="hero-box">
-          <h1>Triangle Inequality Theorem</h1>
-          <p>The sum of any two side lengths must be strictly greater than the third side.</p>
-        </div>
-        <div class="concept-card">
-          <h3 class="concept-title">Quick Lesson (YouTube Short)</h3>
-          <div class="short-container">
-            <iframe src="" title="YouTube short player" frameborder="0" allowfullscreen></iframe>
-          </div>
-        </div>
-        <div class="next-page-box">
-          <button onclick="switchPage('inequality-prac')" class="next-btn">Next Page: Practice Questions &rarr;</button>
-        </div>
-      </section>
-
-      <section id="inequality-prac" class="page-section">
-        <div class="hero-box">
-          <h1>Triangle Inequality: Practice Questions</h1>
-          <p>Practice finding missing third side ranges.</p>
-        </div>
-        <div class="concept-card">
-          <h3 class="concept-title">Question 1</h3>
-          <p class="concept-desc">A triangle has sides of length 7 and 11. Which of the following cannot be the length of the third side?</p>
-        </div>
-        <div class="next-page-box">
-          <button onclick="switchPage('inequality')" class="next-btn secondary-btn">&larr; Back to Video Lesson</button>
-        </div>
-      </section>
-
       <section id="algebra" class="page-section">
         <div class="hero-box">
           <h1>Heart of Algebra</h1>
-          <p>Linear equations, systems, inequalities, and core algebraic manipulation rules.</p>
+          <p>Master linear equations, systems of equations, and inequalities.</p>
         </div>
         <div class="concept-card">
-          <h3 class="concept-title">Quick Lesson (YouTube Short)</h3>
+          <h3 class="concept-title">Video Lesson</h3>
           <div class="short-container">
-            <iframe src="" title="YouTube short player" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
           </div>
         </div>
         <div class="next-page-box">
@@ -144,174 +79,582 @@
 
       <section id="algebra-prac" class="page-section">
         <div class="hero-box">
-          <h1>Heart of Algebra: Practice Questions</h1>
-          <p>Solve simulated linear system test items.</p>
+          <h1>Heart of Algebra: Practice & Solutions</h1>
         </div>
         <div class="concept-card">
-          <h3 class="concept-title">Question 1</h3>
-          <p class="concept-desc">If $3x + y = 15$ and $y = 2x$, what is the value of $x$?</p>
+          <h3 class="concept-title">Practice Video Walkthrough</h3>
+          <div class="short-container">
+            <iframe src="https://www.youtube.com/embed/YOUR_PRACTICE_VIDEO_ID" title="Practice video player" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="concept-card" style="margin-top: 1.5rem;">
+          <h3 class="concept-title">Solution Short (Step-by-Step Breakdown)</h3>
+          <div class="short-container">
+            <iframe src="https://www.youtube.com/embed/YOUR_SOLUTION_SHORT_ID" title="Solution short player" frameborder="0" allowfullscreen></iframe>
+          </div>
         </div>
         <div class="next-page-box">
-          <button onclick="switchPage('algebra')" class="next-btn secondary-btn">&larr; Back to Video Lesson</button>
+          <button onclick="switchPage('algebra')" class="next-btn secondary-btn">&larr; Back to Lesson</button>
         </div>
       </section>
 
       <section id="advanced" class="page-section">
         <div class="hero-box">
           <h1>Advanced Math</h1>
-          <p>Nonlinear expressions, equivalent polynomials, radical equations, and quadratic functions.</p>
+          <p>Tackle quadratic, polynomial, exponential, and nonlinear equations.</p>
         </div>
         <div class="concept-card">
-          <h3 class="concept-title">Quick Lesson (YouTube Short)</h3>
+          <h3 class="concept-title">Video Lesson</h3>
           <div class="short-container">
-            <iframe src="" title="YouTube short player" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
           </div>
+        </div>
+        <div class="next-page-box">
+          <button onclick="switchPage('advanced-prac')" class="next-btn">Next Page: Practice Questions &rarr;</button>
+        </div>
+      </section>
+
+      <section id="advanced-prac" class="page-section">
+        <div class="hero-box">
+          <h1>Advanced Math: Practice & Solutions</h1>
+        </div>
+        <div class="concept-card">
+          <h3 class="concept-title">Practice Video Walkthrough</h3>
+          <div class="short-container">
+            <iframe src="https://www.youtube.com/embed/YOUR_PRACTICE_VIDEO_ID" title="Practice video player" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="concept-card" style="margin-top: 1.5rem;">
+          <h3 class="concept-title">Solution Short (Step-by-Step Breakdown)</h3>
+          <div class="short-container">
+            <iframe src="https://www.youtube.com/embed/YOUR_SOLUTION_SHORT_ID" title="Solution short player" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="next-page-box">
+          <button onclick="switchPage('advanced')" class="next-btn secondary-btn">&larr; Back to Lesson</button>
         </div>
       </section>
 
       <section id="data" class="page-section">
         <div class="hero-box">
           <h1>Problem Solving & Data Analysis</h1>
-          <p>Ratios, proportional relationships, percentages, scatterplots, and basic statistics.</p>
+          <p>Ratios, rates, proportional relationships, scatterplots, and statistics.</p>
         </div>
         <div class="concept-card">
-          <h3 class="concept-title">Quick Lesson (YouTube Short)</h3>
+          <h3 class="concept-title">Video Lesson</h3>
           <div class="short-container">
-            <iframe src="" title="YouTube short player" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
           </div>
+        </div>
+        <div class="next-page-box">
+          <button onclick="switchPage('data-prac')" class="next-btn">Next Page: Practice Questions &rarr;</button>
         </div>
       </section>
 
-      <section id="rule180" class="page-section">
+      <section id="data-prac" class="page-section">
         <div class="hero-box">
-          <h1>Rule of 180</h1>
-          <p>The sum of all interior angles in any triangle is always 180 degrees.</p>
+          <h1>Problem Solving & Data: Practice & Solutions</h1>
         </div>
         <div class="concept-card">
-          <h3 class="concept-title">Quick Lesson (YouTube Short)</h3>
-          <div style="margin-bottom: 1rem; text-align: center;">
-            <img src="https://ichef.bbci.co.uk/images/ic/1200xn/p0dg5wls.png" alt="Rule of 180 illustration" style="max-width: 100%; border-radius: 8px; border: 1px solid #dee2e6;">
-          </div>
+          <h3 class="concept-title">Practice Video Walkthrough</h3>
           <div class="short-container">
-            <iframe src="" title="YouTube short player" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/YOUR_PRACTICE_VIDEO_ID" title="Practice video player" frameborder="0" allowfullscreen></iframe>
           </div>
+        </div>
+        <div class="concept-card" style="margin-top: 1.5rem;">
+          <h3 class="concept-title">Solution Short (Step-by-Step Breakdown)</h3>
+          <div class="short-container">
+            <iframe src="https://www.youtube.com/embed/YOUR_SOLUTION_SHORT_ID" title="Solution short player" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="next-page-box">
+          <button onclick="switchPage('data')" class="next-btn secondary-btn">&larr; Back to Lesson</button>
+        </div>
+      </section>
+
+      <section id="rule180" class="page-section active">
+        <div class="hero-box">
+          <h1>Rule of 180</h1>
+          <p>Angles on a straight line always add up to 180 degrees.</p>
+        </div>
+
+        <div class="concept-card" style="margin-bottom: 2rem;">
+          <h3 class="concept-title">Key Notes & Concept Overview</h3>
+          <div style="text-align: center; margin: 1.5rem 0;">
+            <img src="https://ichef.bbci.co.uk/images/ic/480x270/p0dg2c1q.png" alt="Diagram showing triangle angles adding up to 180 degrees." style="max-width: 100%; height: auto; border: 3px solid #212529; border-radius: 8px;">
+          </div>
+          <p class="concept-desc">The <strong>Rule of 180&deg;</strong> is a foundational geometric concept frequently tested on the Digital SAT.</p>
+          <ul style="margin-top: 10px; padding-left: 20px; line-height: 1.6; color: #495057;">
+            <li><strong>Straight Line Angles:</strong> Adjacent angles forming a straight line add up to 180&deg;. (<var>A</var> + <var>B</var> = 180&deg;).</li>
+            <li><strong>Supplementary Angles:</strong> Two angles totaling 180&deg;.</li>
+            <li><strong>Triangles Interior Sum:</strong> Interior angles of a triangle total 180&deg; (<var>a</var> + <var>b</var> + <var>c</var> = 180&deg;).</li>
+          </ul>
+        </div>
+
+        <div class="concept-card">
+          <h3 class="concept-title">Quick Lesson Video</h3>
+          <div class="short-container">
+            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="next-page-box">
+          <button onclick="switchPage('rule180-prac')" class="next-btn">Next Page: Practice Questions &rarr;</button>
+        </div>
+      </section>
+
+      <section id="rule180-prac" class="page-section">
+        <div class="hero-box">
+          <h1>Rule of 180: Practice Questions</h1>
+          <p>Test your understanding with official Digital SAT practice problems.</p>
+        </div>
+
+        <div class="concept-card" style="margin-bottom: 2rem;">
+          <h3 class="concept-title">Question 1</h3>
+          <div style="text-align: center; margin: 1.5rem 0;">
+            <img src="image_06a429.png" alt="Question ID c8d60e48: In the given triangle, AB = AC and angle ABC has a measure of 67 degrees. What is the value of x?" style="max-width: 100%; height: auto; border: 3px solid #212529; border-radius: 8px;" onerror="this.onerror=null; this.src='https://via.placeholder.com/480x270?text=Image+Not+Found+-+Check+Filename';">
+          </div>
+          <p class="concept-desc">
+            In the given triangle, <var>AB</var> = <var>AC</var> and angle <var>ABC</var> has a measure of 67&deg;. What is the value of <var>x</var>&deg;?
+          </p>
+        </div>
+
+        <div class="concept-card" style="margin-bottom: 2rem;">
+          <h3 class="concept-title">Question 2</h3>
+          <p class="concept-desc">
+            [Insert Question 2 text here]
+          </p>
+        </div>
+
+        <div class="concept-card" style="margin-bottom: 2rem;">
+          <h3 class="concept-title">Question 3</h3>
+          <p class="concept-desc">
+            [Insert Question 3 text here]
+          </p>
+        </div>
+
+        <div class="concept-card">
+          <h3 class="concept-title">Practice Video Walkthrough</h3>
+          <div class="short-container">
+            <iframe src="https://www.youtube.com/embed/YOUR_PRACTICE_VIDEO_ID" title="Practice video player" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <div class="concept-card" style="margin-top: 1.5rem;">
+          <h3 class="concept-title">Solution Short (Step-by-Step Breakdown)</h3>
+          <div class="short-container">
+            <iframe src="https://www.youtube.com/embed/YOUR_SOLUTION_SHORT_ID" title="Solution short player" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <div class="next-page-box">
+          <button onclick="switchPage('rule180')" class="next-btn secondary-btn">&larr; Back to Lesson</button>
+        </div>
+      </section>
+
+      <section id="inequality" class="page-section">
+        <div class="hero-box">
+          <h1>Triangle Inequality Theorem</h1>
+          <p>The sum of any two side lengths must be strictly greater than the third side.</p>
+        </div>
+        <div class="concept-card">
+          <h3 class="concept-title">Quick Lesson Video</h3>
+          <div class="short-container">
+            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="next-page-box">
+          <button onclick="switchPage('inequality-prac')" class="next-btn">Next Page: Practice Questions &rarr;</button>
+        </div>
+      </section>
+
+      <section id="inequality-prac" class="page-section">
+        <div class="hero-box">
+          <h1>Triangle Inequality: Practice & Solutions</h1>
+        </div>
+        <div class="concept-card">
+          <h3 class="concept-title">Practice Video Walkthrough</h3>
+          <div class="short-container">
+            <iframe src="https://www.youtube.com/embed/YOUR_PRACTICE_VIDEO_ID" title="Practice video player" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="concept-card" style="margin-top: 1.5rem;">
+          <h3 class="concept-title">Solution Short (Step-by-Step Breakdown)</h3>
+          <div class="short-container">
+            <iframe src="https://www.youtube.com/embed/YOUR_SOLUTION_SHORT_ID" title="Solution short player" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="next-page-box">
+          <button onclick="switchPage('inequality')" class="next-btn secondary-btn">&larr; Back to Lesson</button>
+        </div>
+      </section>
+
+      <section id="types" class="page-section">
+        <div class="hero-box">
+          <h1>Type of Triangles</h1>
+          <p>Equilateral, isosceles, scalene, acute, obtuse, and right triangles.</p>
+        </div>
+        <div class="concept-card">
+          <h3 class="concept-title">Video Lesson</h3>
+          <div class="short-container">
+            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="next-page-box">
+          <button onclick="switchPage('types-prac')" class="next-btn">Next Page: Practice Questions &rarr;</button>
+        </div>
+      </section>
+
+      <section id="types-prac" class="page-section">
+        <div class="hero-box">
+          <h1>Type of Triangles: Practice & Solutions</h1>
+        </div>
+        <div class="concept-card">
+          <h3 class="concept-title">Practice Video Walkthrough</h3>
+          <div class="short-container">
+            <iframe src="https://www.youtube.com/embed/YOUR_PRACTICE_VIDEO_ID" title="Practice video player" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="concept-card" style="margin-top: 1.5rem;">
+          <h3 class="concept-title">Solution Short (Step-by-Step Breakdown)</h3>
+          <div class="short-container">
+            <iframe src="https://www.youtube.com/embed/YOUR_SOLUTION_SHORT_ID" title="Solution short player" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="next-page-box">
+          <button onclick="switchPage('types')" class="next-btn secondary-btn">&larr; Back to Lesson</button>
         </div>
       </section>
 
       <section id="exterior" class="page-section">
         <div class="hero-box">
           <h1>Exterior Angle Theorem</h1>
-          <p>An exterior angle of a triangle equals the sum of its two remote interior angles.</p>
+          <p>The measure of an exterior angle equals the sum of its two remote interior angles.</p>
         </div>
         <div class="concept-card">
-          <h3 class="concept-title">Quick Lesson (YouTube Short)</h3>
+          <h3 class="concept-title">Video Lesson</h3>
           <div class="short-container">
-            <iframe src="" title="YouTube short player" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
           </div>
+        </div>
+        <div class="next-page-box">
+          <button onclick="switchPage('exterior-prac')" class="next-btn">Next Page: Practice Questions &rarr;</button>
+        </div>
+      </section>
+
+      <section id="exterior-prac" class="page-section">
+        <div class="hero-box">
+          <h1>Exterior Angle: Practice & Solutions</h1>
+        </div>
+        <div class="concept-card">
+          <h3 class="concept-title">Practice Video Walkthrough</h3>
+          <div class="short-container">
+            <iframe src="https://www.youtube.com/embed/YOUR_PRACTICE_VIDEO_ID" title="Practice video player" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="concept-card" style="margin-top: 1.5rem;">
+          <h3 class="concept-title">Solution Short (Step-by-Step Breakdown)</h3>
+          <div class="short-container">
+            <iframe src="https://www.youtube.com/embed/YOUR_SOLUTION_SHORT_ID" title="Solution short player" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="next-page-box">
+          <button onclick="switchPage('exterior')" class="next-btn secondary-btn">&larr; Back to Lesson</button>
         </div>
       </section>
 
       <section id="pythagorean" class="page-section">
         <div class="hero-box">
-          <h1>Pythagorean Theorem / Triplets</h1>
-          <p>Core relation $a^2 + b^2 = c^2$ along with common integer triplets.</p>
+          <h1>Pythagorean Theorem & Triplets</h1>
+          <p>Using <var>a</var><sup>2</sup> + <var>b</var><sup>2</sup> = <var>c</var><sup>2</sup> and recognizing common Pythagorean triples.</p>
         </div>
         <div class="concept-card">
-          <h3 class="concept-title">Quick Lesson (YouTube Short)</h3>
+          <h3 class="concept-title">Video Lesson</h3>
           <div class="short-container">
-            <iframe src="" title="YouTube short player" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
           </div>
+        </div>
+        <div class="next-page-box">
+          <button onclick="switchPage('pythagorean-prac')" class="next-btn">Next Page: Practice Questions &rarr;</button>
+        </div>
+      </section>
+
+      <section id="pythagorean-prac" class="page-section">
+        <div class="hero-box">
+          <h1>Pythagorean Theorem: Practice & Solutions</h1>
+        </div>
+        <div class="concept-card">
+          <h3 class="concept-title">Practice Video Walkthrough</h3>
+          <div class="short-container">
+            <iframe src="https://www.youtube.com/embed/YOUR_PRACTICE_VIDEO_ID" title="Practice video player" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="concept-card" style="margin-top: 1.5rem;">
+          <h3 class="concept-title">Solution Short (Step-by-Step Breakdown)</h3>
+          <div class="short-container">
+            <iframe src="https://www.youtube.com/embed/YOUR_SOLUTION_SHORT_ID" title="Solution short player" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="next-page-box">
+          <button onclick="switchPage('pythagorean')" class="next-btn secondary-btn">&larr; Back to Lesson</button>
         </div>
       </section>
 
       <section id="triangarea" class="page-section">
         <div class="hero-box">
-          <h1>Area</h1>
-          <p>Calculate total surface coverage using base and perpendicular height.</p>
+          <h1>Triangle Area</h1>
+          <p>Calculating area using <var>A</var> = <sup>1</sup>/<sub>2</sub><var>bh</var>.</p>
         </div>
         <div class="concept-card">
-          <h3 class="concept-title">Quick Lesson (YouTube Short)</h3>
+          <h3 class="concept-title">Video Lesson</h3>
           <div class="short-container">
-            <iframe src="" title="YouTube short player" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
           </div>
+        </div>
+        <div class="next-page-box">
+          <button onclick="switchPage('triangarea-prac')" class="next-btn">Next Page: Practice Questions &rarr;</button>
+        </div>
+      </section>
+
+      <section id="triangarea-prac" class="page-section">
+        <div class="hero-box">
+          <h1>Triangle Area: Practice & Solutions</h1>
+        </div>
+        <div class="concept-card">
+          <h3 class="concept-title">Practice Video Walkthrough</h3>
+          <div class="short-container">
+            <iframe src="https://www.youtube.com/embed/YOUR_PRACTICE_VIDEO_ID" title="Practice video player" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="concept-card" style="margin-top: 1.5rem;">
+          <h3 class="concept-title">Solution Short (Step-by-Step Breakdown)</h3>
+          <div class="short-container">
+            <iframe src="https://www.youtube.com/embed/YOUR_SOLUTION_SHORT_ID" title="Solution short player" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="next-page-box">
+          <button onclick="switchPage('triangarea')" class="next-btn secondary-btn">&larr; Back to Lesson</button>
         </div>
       </section>
 
       <section id="sohcahtoa" class="page-section">
         <div class="hero-box">
           <h1>SOH CAH TOA</h1>
-          <p>Sine, Cosine, and Tangent definitions for right triangles.</p>
+          <p>Sine, Cosine, and Tangent ratios in right triangles.</p>
         </div>
         <div class="concept-card">
-          <h3 class="concept-title">Quick Lesson (YouTube Short)</h3>
+          <h3 class="concept-title">Video Lesson</h3>
           <div class="short-container">
-            <iframe src="" title="YouTube short player" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
           </div>
+        </div>
+        <div class="next-page-box">
+          <button onclick="switchPage('sohcahtoa-prac')" class="next-btn">Next Page: Practice Questions &rarr;</button>
+        </div>
+      </section>
+
+      <section id="sohcahtoa-prac" class="page-section">
+        <div class="hero-box">
+          <h1>SOH CAH TOA: Practice & Solutions</h1>
+        </div>
+        <div class="concept-card">
+          <h3 class="concept-title">Practice Video Walkthrough</h3>
+          <div class="short-container">
+            <iframe src="https://www.youtube.com/embed/YOUR_PRACTICE_VIDEO_ID" title="Practice video player" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="concept-card" style="margin-top: 1.5rem;">
+          <h3 class="concept-title">Solution Short (Step-by-Step Breakdown)</h3>
+          <div class="short-container">
+            <iframe src="https://www.youtube.com/embed/YOUR_SOLUTION_SHORT_ID" title="Solution short player" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="next-page-box">
+          <button onclick="switchPage('sohcahtoa')" class="next-btn secondary-btn">&larr; Back to Lesson</button>
         </div>
       </section>
 
       <section id="special" class="page-section">
         <div class="hero-box">
-          <h1>Special Right Triangle</h1>
-          <p>45-45-90 and 30-60-90 side ratio guidelines.</p>
+          <h1>Special Right Triangles</h1>
+          <p>Mastering 45-45-90 and 30-60-90 triangle ratios.</p>
         </div>
         <div class="concept-card">
-          <h3 class="concept-title">Quick Lesson (YouTube Short)</h3>
+          <h3 class="concept-title">Video Lesson</h3>
           <div class="short-container">
-            <iframe src="" title="YouTube short player" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
           </div>
+        </div>
+        <div class="next-page-box">
+          <button onclick="switchPage('special-prac')" class="next-btn">Next Page: Practice Questions &rarr;</button>
+        </div>
+      </section>
+
+      <section id="special-prac" class="page-section">
+        <div class="hero-box">
+          <h1>Special Right Triangles: Practice & Solutions</h1>
+        </div>
+        <div class="concept-card">
+          <h3 class="concept-title">Practice Video Walkthrough</h3>
+          <div class="short-container">
+            <iframe src="https://www.youtube.com/embed/YOUR_PRACTICE_VIDEO_ID" title="Practice video player" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="concept-card" style="margin-top: 1.5rem;">
+          <h3 class="concept-title">Solution Short (Step-by-Step Breakdown)</h3>
+          <div class="short-container">
+            <iframe src="https://www.youtube.com/embed/YOUR_SOLUTION_SHORT_ID" title="Solution short player" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="next-page-box">
+          <button onclick="switchPage('special')" class="next-btn secondary-btn">&larr; Back to Lesson</button>
         </div>
       </section>
 
       <section id="similar" class="page-section">
         <div class="hero-box">
           <h1>Similar Triangles</h1>
-          <p>Proportional side lengths and matching angle properties across scaled figures.</p>
+          <p>Proportions and scale factors for triangles with equal angles.</p>
         </div>
         <div class="concept-card">
-          <h3 class="concept-title">Quick Lesson (YouTube Short)</h3>
+          <h3 class="concept-title">Video Lesson</h3>
           <div class="short-container">
-            <iframe src="" title="YouTube short player" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
           </div>
+        </div>
+        <div class="next-page-box">
+          <button onclick="switchPage('similar-prac')" class="next-btn">Next Page: Practice Questions &rarr;</button>
+        </div>
+      </section>
+
+      <section id="similar-prac" class="page-section">
+        <div class="hero-box">
+          <h1>Similar Triangles: Practice & Solutions</h1>
+        </div>
+        <div class="concept-card">
+          <h3 class="concept-title">Practice Video Walkthrough</h3>
+          <div class="short-container">
+            <iframe src="https://www.youtube.com/embed/YOUR_PRACTICE_VIDEO_ID" title="Practice video player" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="concept-card" style="margin-top: 1.5rem;">
+          <h3 class="concept-title">Solution Short (Step-by-Step Breakdown)</h3>
+          <div class="short-container">
+            <iframe src="https://www.youtube.com/embed/YOUR_SOLUTION_SHORT_ID" title="Solution short player" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="next-page-box">
+          <button onclick="switchPage('similar')" class="next-btn secondary-btn">&larr; Back to Lesson</button>
         </div>
       </section>
 
       <section id="congruent" class="page-section">
         <div class="hero-box">
           <h1>Congruent Triangles</h1>
-          <p>Identical shapes and sizes via standard congruence theorems.</p>
+          <p>SSS, SAS, ASA, AAS, and HL congruence theorems.</p>
         </div>
         <div class="concept-card">
-          <h3 class="concept-title">Quick Lesson (YouTube Short)</h3>
+          <h3 class="concept-title">Video Lesson</h3>
           <div class="short-container">
-            <iframe src="" title="YouTube short player" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
           </div>
+        </div>
+        <div class="next-page-box">
+          <button onclick="switchPage('congruent-prac')" class="next-btn">Next Page: Practice Questions &rarr;</button>
+        </div>
+      </section>
+
+      <section id="congruent-prac" class="page-section">
+        <div class="hero-box">
+          <h1>Congruent Triangles: Practice & Solutions</h1>
+        </div>
+        <div class="concept-card">
+          <h3 class="concept-title">Practice Video Walkthrough</h3>
+          <div class="short-container">
+            <iframe src="https://www.youtube.com/embed/YOUR_PRACTICE_VIDEO_ID" title="Practice video player" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="concept-card" style="margin-top: 1.5rem;">
+          <h3 class="concept-title">Solution Short (Step-by-Step Breakdown)</h3>
+          <div class="short-container">
+            <iframe src="https://www.youtube.com/embed/YOUR_SOLUTION_SHORT_ID" title="Solution short player" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="next-page-box">
+          <button onclick="switchPage('congruent')" class="next-btn secondary-btn">&larr; Back to Lesson</button>
         </div>
       </section>
 
       <section id="sathacks" class="page-section">
         <div class="hero-box">
-          <h1>SAT Hacks</h1>
-          <p>Specialized shortcut strategies for solving triangle problems rapidly.</p>
+          <h1>SAT Geometry Hacks</h1>
+          <p>Shortcuts and time-saving tricks for geometry questions.</p>
         </div>
         <div class="concept-card">
-          <h3 class="concept-title">Quick Lesson (YouTube Short)</h3>
+          <h3 class="concept-title">Video Lesson</h3>
           <div class="short-container">
-            <iframe src="" title="YouTube short player" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
           </div>
+        </div>
+        <div class="next-page-box">
+          <button onclick="switchPage('sathacks-prac')" class="next-btn">Next Page: Practice Questions &rarr;</button>
+        </div>
+      </section>
+
+      <section id="sathacks-prac" class="page-section">
+        <div class="hero-box">
+          <h1>SAT Geometry Hacks: Practice & Solutions</h1>
+        </div>
+        <div class="concept-card">
+          <h3 class="concept-title">Practice Video Walkthrough</h3>
+          <div class="short-container">
+            <iframe src="https://www.youtube.com/embed/YOUR_PRACTICE_VIDEO_ID" title="Practice video player" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="concept-card" style="margin-top: 1.5rem;">
+          <h3 class="concept-title">Solution Short (Step-by-Step Breakdown)</h3>
+          <div class="short-container">
+            <iframe src="https://www.youtube.com/embed/YOUR_SOLUTION_SHORT_ID" title="Solution short player" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="next-page-box">
+          <button onclick="switchPage('sathacks')" class="next-btn secondary-btn">&larr; Back to Lesson</button>
         </div>
       </section>
 
       <section id="desmos" class="page-section">
         <div class="hero-box">
-          <h1>SAT Desmos Master Guide</h1>
-          <p>Master when to use and when to avoid Desmos for maximum efficiency.</p>
+          <h1>SAT Desmos Calculator Tricks</h1>
+          <p>How to use the built-in Desmos graphing calculator to solve algebra and geometry questions instantly.</p>
         </div>
         <div class="concept-card">
-          <h3 class="concept-title">Quick Lesson (YouTube Short)</h3>
+          <h3 class="concept-title">Video Lesson</h3>
           <div class="short-container">
-            <iframe src="" title="YouTube short player" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
           </div>
+        </div>
+        <div class="next-page-box">
+          <button onclick="switchPage('desmos-prac')" class="next-btn">Next Page: Practice Questions &rarr;</button>
+        </div>
+      </section>
+
+      <section id="desmos-prac" class="page-section">
+        <div class="hero-box">
+          <h1>SAT Desmos: Practice & Solutions</h1>
+        </div>
+        <div class="concept-card">
+          <h3 class="concept-title">Practice Video Walkthrough</h3>
+          <div class="short-container">
+            <iframe src="https://www.youtube.com/embed/YOUR_PRACTICE_VIDEO_ID" title="Practice video player" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="concept-card" style="margin-top: 1.5rem;">
+          <h3 class="concept-title">Solution Short (Step-by-Step Breakdown)</h3>
+          <div class="short-container">
+            <iframe src="https://www.youtube.com/embed/YOUR_SOLUTION_SHORT_ID" title="Solution short player" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="next-page-box">
+          <button onclick="switchPage('desmos')" class="next-btn secondary-btn">&larr; Back to Lesson</button>
         </div>
       </section>
 

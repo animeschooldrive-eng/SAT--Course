@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compile1600 | Free Digital SAT Math &amp; English Lessons</title>
+    <title>Compile1600 | Free Digital SAT Math + Reading &amp; Writing Lessons</title>
     <meta name="description" content="Free digital SAT prep by Compile1600: high-yield Math lessons, full Reading &amp; Writing coverage (Information &amp; Ideas, Craft &amp; Structure, Conventions, Expression of Ideas), BOSS method, Desmos tips, and free practice resources.">
     <meta name="theme-color" content="#04AA6D">
     <style>
@@ -157,13 +157,14 @@
 
             <div id="page-home" class="page-section active">
                 <h1>Score Higher on the Digital SAT 🚀</h1>
-                <p style="font-size:17px; max-width:720px;">Free, focused lessons built for real score gains. High-yield Math modules, complete Reading &amp; Writing coverage (all four official domains), the BOSS method, Desmos tips, and free video walkthroughs.</p>
+                <p style="font-size:17px; max-width:720px;">Free, focused lessons built for real score gains. High-yield Math, complete Reading &amp; Writing (all 4 official domains), the BOSS method, Desmos tips, daily practice questions, and free video walkthroughs.</p>
                 
                 <div class="w3-example">
                     <h3>🎯 Ready to improve fast?</h3>
-                    <p>Start with the highest-yield topics, practice with real-style questions, and watch free video explanations on the Compile1600 channel.</p>
+                    <p>Start with the highest-yield topics, try today’s questions, and watch free explanations on the Compile1600 channel. Everything here is 100% free.</p>
                     <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:12px;">
                         <button class="resource-btn" onclick="switchPage('math', 'functions')">Start Math Lessons</button>
+                        <button class="resource-btn" onclick="switchPage('english', 'info')" style="background:#3b5bdb;">Start English Lessons</button>
                         <a href="https://www.youtube.com/@Compile1600" target="_blank" class="resource-btn" style="background:#dc3545;">▶ Watch Free Videos</a>
                     </div>
                 </div>
@@ -187,22 +188,45 @@
                     </div>
                 </div>
 
-                <h2>📌 Question of the Day</h2>
-                <div class="w3-example" id="qotd-box">
-                    <p style="font-size:13px; color:#6c757d; margin-bottom:8px;">From the Compile1600 practice bank · Math</p>
-                    <p><strong>h(x) = 2(x − 4)² − 32</strong></p>
-                    <p>The quadratic function h is defined as shown. In the xy-plane, the graph of y = h(x) intersects the x-axis at the points (0, 0) and (t, 0), where t is a constant. What is the value of t?</p>
-                    
-                    <button class="resource-btn" onclick="toggleAnswer()" id="qotd-btn" style="margin-top:8px;">Show Answer</button>
-                    <div id="qotd-answer" style="display:none; margin-top:15px; padding-top:12px; border-top:1px solid #dee2e6;">
-                        <p><strong>Answer: t = 8</strong></p>
-                        <p style="font-size:14px;">Set h(x) = 0 → 2(x−4)² − 32 = 0 → (x−4)² = 16 → x−4 = ±4 → x = 8 or x = 0. So the other intercept is t = 8.</p>
-                        <p style="font-size:14px; margin-bottom:0;"><a href="#" onclick="switchPage('math', 'parabolas')" style="color:#04AA6D; font-weight:600;">Review Parabolas &amp; Vertex Form →</a></p>
+                <h2>📌 Questions of the Day</h2>
+                <p style="font-size:14px; color:#6c757d; margin-bottom:15px;">One Math + one English every day. Try them before checking the answer.</p>
+
+                <div class="resource-grid" style="margin-top:0;">
+                    <!-- Math QOTD -->
+                    <div class="w3-example" id="qotd-math" style="margin:0;">
+                        <p style="font-size:13px; color:#6c757d; margin-bottom:8px;"><strong>Math</strong> · Parabolas</p>
+                        <p><strong>h(x) = 2(x − 4)² − 32</strong></p>
+                        <p>The graph of y = h(x) intersects the x-axis at (0, 0) and (t, 0). What is the value of t?</p>
+                        <button class="resource-btn" onclick="toggleAnswer('math')" id="qotd-btn-math" style="margin-top:8px;">Show Answer</button>
+                        <div id="qotd-answer-math" style="display:none; margin-top:15px; padding-top:12px; border-top:1px solid #dee2e6;">
+                            <p><strong>Answer: t = 8</strong></p>
+                            <p style="font-size:14px;">Set h(x) = 0 → (x−4)² = 16 → x = 8 or x = 0.</p>
+                            <p style="font-size:14px; margin-bottom:0;"><a href="#" onclick="switchPage('math', 'parabolas')" style="color:#04AA6D; font-weight:600;">Review Parabolas →</a></p>
+                        </div>
+                    </div>
+
+                    <!-- English QOTD -->
+                    <div class="w3-example" id="qotd-english" style="margin:0;">
+                        <p style="font-size:13px; color:#6c757d; margin-bottom:8px;"><strong>English</strong> · Standard English Conventions</p>
+                        <p>The committee reviewed the proposal, it decided to postpone the vote.</p>
+                        <p>What is the main problem with the sentence above?</p>
+                        <button class="resource-btn" onclick="toggleAnswer('english')" id="qotd-btn-english" style="margin-top:8px;">Show Answer</button>
+                        <div id="qotd-answer-english" style="display:none; margin-top:15px; padding-top:12px; border-top:1px solid #dee2e6;">
+                            <p><strong>Answer: Comma splice (run-on)</strong></p>
+                            <p style="font-size:14px;">Two independent clauses are joined only by a comma. Fix with a period, semicolon, or comma + FANBOYS.</p>
+                            <p style="font-size:14px; margin-bottom:0;"><a href="#" onclick="switchPage('english', 'conventions')" style="color:#04AA6D; font-weight:600;">Review C-PIN &amp; Clauses →</a></p>
+                        </div>
                     </div>
                 </div>
 
                 <div class="w3-note" style="margin-top:30px;">
-                    <p><strong>Tip:</strong> Bookmark this page and subscribe to <a href="https://www.youtube.com/@Compile1600" target="_blank" style="color:#856404; font-weight:600;">@Compile1600</a> so you never miss new problem walkthroughs and score-boosting shortcuts.</p>
+                    <p><strong>Daily habit:</strong> Bookmark this page, try both questions, then watch the matching lesson on <a href="https://www.youtube.com/@Compile1600" target="_blank" style="color:#856404; font-weight:600;">@Compile1600</a>. Consistency beats cramming.</p>
+                </div>
+
+                <div style="margin-top:25px; padding:20px; background:#e8f5e9; border-radius:8px; border-left:5px solid #04AA6D;">
+                    <h3 style="margin-top:0; color:#1a1d20;">🚀 Share &amp; Grow</h3>
+                    <p style="margin-bottom:12px;">Know someone studying for the digital SAT? Send them this free resource. More students using it = more free lessons we can keep adding.</p>
+                    <a href="https://www.youtube.com/@Compile1600" target="_blank" class="resource-btn" style="background:#dc3545;">▶ Subscribe on YouTube</a>
                 </div>
             </div>
 
@@ -1108,10 +1132,10 @@
             }
         }
 
-        // Question of the Day answer toggle
-        function toggleAnswer() {
-            const answer = document.getElementById('qotd-answer');
-            const btn = document.getElementById('qotd-btn');
+        // Question of the Day answer toggle (supports math & english)
+        function toggleAnswer(section) {
+            const answer = document.getElementById('qotd-answer-' + section);
+            const btn = document.getElementById('qotd-btn-' + section);
             if (answer.style.display === 'none') {
                 answer.style.display = 'block';
                 btn.textContent = 'Hide Answer';

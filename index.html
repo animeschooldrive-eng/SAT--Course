@@ -3,122 +3,366 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compile1600 | Free Digital SAT Math + Reading &amp; Writing Lessons</title>
-    <meta name="description" content="Free digital SAT prep by Compile1600: high-yield Math lessons, full Reading &amp; Writing coverage (Information &amp; Ideas, Craft &amp; Structure, Conventions, Expression of Ideas), BOSS method, Desmos tips, and free practice resources.">
-    <meta name="theme-color" content="#04AA6D">
+    <title>Compile1600 | Digital SAT Notes &amp; Practice</title>
+    <meta name="description" content="Personal digital SAT study site with Math and Reading &amp; Writing notes, strategies, and practice questions.">
     <style>
+        /* reset-ish */
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8f9fa; color: #212529; line-height: 1.6; }
-        
-        /* Top Navigation Bar */
-        .topnav { background-color: #1a1d20; overflow: hidden; white-space: nowrap; position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        .topnav .left-nav { display: flex; align-items: center; gap: 15px; }
-        .menu-toggle { background: none; border: none; color: #fff; font-size: 20px; cursor: pointer; padding: 14px 10px; }
-        .topnav .logo { color: #04AA6D; font-weight: bold; font-size: 22px; text-decoration: none; padding: 14px 0; letter-spacing: 0.5px; }
-        .topnav-links { display: flex; align-items: center; gap: 5px; }
-        .topnav a, .topnav button { display: block; color: #adb5bd; text-align: center; padding: 14px 16px; text-decoration: none; font-size: 15px; background: none; border: none; cursor: pointer; font-family: inherit; font-weight: 500; transition: color 0.2s, background 0.2s; }
-        .topnav a:hover, .topnav button:hover { color: white; background-color: rgba(255,255,255,0.05); }
-        .topnav .active { color: white; background-color: #04AA6D; }
-        .yt-btn { background-color: #dc3545 !important; color: white !important; font-weight: bold; border-radius: 6px; margin: 8px 0; padding: 8px 16px !important; transition: background-color 0.2s !important; }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f5f5f5;
+            color: #222;
+            line-height: 1.5;
+        }
+
+        /* navbar */
+        .topnav {
+            background-color: #1a1d20;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 16px;
+        }
+        .topnav .left-nav { display: flex; align-items: center; gap: 12px; }
+        .menu-toggle {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 12px 8px;
+        }
+        .topnav .logo {
+            color: #04AA6D;
+            font-weight: bold;
+            font-size: 20px;
+            text-decoration: none;
+            padding: 12px 0;
+        }
+        .topnav-links { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+        .topnav a, .topnav button {
+            display: block;
+            color: #bbb;
+            text-align: center;
+            padding: 12px 12px;
+            text-decoration: none;
+            font-size: 14px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        .topnav a:hover, .topnav button:hover { color: #fff; }
+        .topnav .active { color: #fff; background-color: #04AA6D; }
+        .yt-btn {
+            background-color: #dc3545 !important;
+            color: #fff !important;
+            font-weight: bold;
+            border-radius: 4px;
+            margin: 6px 0;
+            padding: 6px 12px !important;
+        }
         .yt-btn:hover { background-color: #bb2d3b !important; }
 
-        /* Layout Container */
-        .container { display: flex; min-height: calc(100vh - 60px); transition: all 0.3s ease; }
+        /* page layout */
+        .container { display: flex; min-height: calc(100vh - 50px); }
 
-        /* Sidebar */
-        .sidebar { width: 280px; background-color: #ffffff; height: calc(100vh - 60px); position: sticky; top: 60px; overflow-y: auto; padding: 20px 0; border-right: 1px solid #e9ecef; flex-shrink: 0; transition: transform 0.3s ease, width 0.3s ease; }
-        .sidebar.closed { transform: translateX(-280px); width: 0; padding: 0; overflow: hidden; border-right: none; }
-        .sidebar h2 { font-size: 12px; padding: 10px 20px; color: #6c757d; text-transform: uppercase; letter-spacing: 1.2px; font-weight: 700; }
-        .sidebar a { display: block; color: #495057; padding: 10px 20px; text-decoration: none; font-size: 14px; font-weight: 500; transition: background 0.2s, color 0.2s; border-left: 3px solid transparent; }
-        .sidebar a:hover { background-color: #f1f3f5; color: #04AA6D; border-left-color: #04AA6D; }
+        /* left sidebar */
+        .sidebar {
+            width: 260px;
+            background-color: #fff;
+            height: calc(100vh - 50px);
+            position: sticky;
+            top: 50px;
+            overflow-y: auto;
+            padding: 16px 0;
+            border-right: 1px solid #ddd;
+            flex-shrink: 0;
+        }
+        .sidebar.closed {
+            width: 0;
+            padding: 0;
+            overflow: hidden;
+            border-right: none;
+        }
+        .sidebar h2 {
+            font-size: 12px;
+            padding: 8px 16px;
+            color: #777;
+            text-transform: uppercase;
+        }
+        .sidebar a {
+            display: block;
+            color: #333;
+            padding: 8px 16px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .sidebar a:hover { background-color: #f0f0f0; color: #04AA6D; }
 
-        /* Main Content */
-        .main { flex: 1; padding: 40px; max-width: 1400px; background-color: #ffffff; box-shadow: 0 0 15px rgba(0,0,0,0.02); margin: 20px; border-radius: 8px; }
-        h1 { font-size: 32px; margin-bottom: 15px; color: #1a1d20; font-weight: 700; }
-        h2 { font-size: 20px; margin-top: 30px; margin-bottom: 12px; color: #212529; border-bottom: 2px solid #04AA6D; padding-bottom: 6px; font-weight: 600; }
-        h3 { font-size: 16px; margin-top: 20px; margin-bottom: 8px; color: #343a40; font-weight: 600; }
-        p { margin-bottom: 15px; font-size: 15px; color: #495057; }
-        ul { margin-left: 20px; margin-bottom: 15px; font-size: 15px; color: #495057; }
-        li { margin-bottom: 6px; }
+        /* main content area */
+        .main {
+            flex: 1;
+            padding: 28px;
+            max-width: 1200px;
+            background-color: #fff;
+            margin: 16px;
+            border: 1px solid #e5e5e5;
+        }
+        h1 { font-size: 28px; margin-bottom: 12px; color: #111; }
+        h2 {
+            font-size: 18px;
+            margin-top: 26px;
+            margin-bottom: 10px;
+            color: #222;
+            border-bottom: 2px solid #04AA6D;
+            padding-bottom: 4px;
+        }
+        h3 { font-size: 16px; margin-top: 18px; margin-bottom: 6px; color: #333; }
+        p { margin-bottom: 12px; font-size: 15px; color: #444; }
+        ul { margin-left: 20px; margin-bottom: 12px; font-size: 15px; color: #444; }
+        li { margin-bottom: 5px; }
 
-        /* Component Boxes */
-        .w3-example { background-color: #f8f9fa; border-left: 5px solid #04AA6D; padding: 20px; margin: 20px 0; border-radius: 0 6px 6px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
-        .w3-note { background-color: #fff3cd; border-left: 5px solid #ffc107; padding: 15px; margin: 20px 0; border-radius: 0 6px 6px 0; color: #856404; }
-        .w3-code { background-color: #f1f3f5; padding: 15px 20px; border-left: 5px solid #3b5bdb; font-family: Consolas, Monaco, monospace; font-size: 14px; margin: 15px 0; border-radius: 0 6px 6px 0; overflow-x: auto; color: #212529; }
-        .desmos-box { background-color: #e3fafc; border-left: 5px solid #15aabf; padding: 20px; margin: 20px 0; border-radius: 0 6px 6px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
-        
-        /* Clickable Images with smaller preview size */
-        .zoomable-img { max-width: 220px; height: auto; border-radius: 4px; border: 1px solid #ddd; padding: 4px; background: #fff; cursor: pointer; transition: transform 0.2s; }
-        .zoomable-img:hover { transform: scale(1.02); }
+        /* example / note boxes (stole the idea from w3schools kinda) */
+        .w3-example {
+            background-color: #f8f8f8;
+            border-left: 5px solid #04AA6D;
+            padding: 16px;
+            margin: 16px 0;
+        }
+        .w3-note {
+            background-color: #fff8e1;
+            border-left: 5px solid #ffc107;
+            padding: 12px;
+            margin: 16px 0;
+            color: #856404;
+        }
+        .w3-code {
+            background-color: #f0f0f0;
+            padding: 12px 16px;
+            border-left: 5px solid #3b5bdb;
+            font-family: Consolas, monospace;
+            font-size: 14px;
+            margin: 12px 0;
+            overflow-x: auto;
+        }
+        .desmos-box {
+            background-color: #e8f7f9;
+            border-left: 5px solid #15aabf;
+            padding: 16px;
+            margin: 16px 0;
+        }
 
-        /* Fullscreen Modal Overlay */
-        #img-modal { display: none; position: fixed; z-index: 9999; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.85); align-items: center; justify-content: center; flex-direction: column; padding: 20px; }
-        #img-modal img { max-width: 90%; max-height: 80vh; object-fit: contain; border-radius: 6px; box-shadow: 0 5px 25px rgba(0,0,0,0.5); background: #fff; padding: 10px; }
-        .modal-close-btn { margin-top: 20px; background-color: #dc3545; color: white; border: none; padding: 10px 24px; font-size: 16px; font-weight: bold; border-radius: 6px; cursor: pointer; transition: background 0.2s; }
-        .modal-close-btn:hover { background-color: #bb2d3b; }
+        /* click to zoom images */
+        .zoomable-img {
+            max-width: 220px;
+            height: auto;
+            border: 1px solid #ccc;
+            padding: 3px;
+            background: #fff;
+            cursor: pointer;
+        }
 
-        /* Two-Column Layout for Notes (Left) and Videos/Desmos (Right) */
-        .content-layout { display: flex; gap: 30px; align-items: flex-start; margin-top: 20px; }
+        /* image modal */
+        #img-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 20px;
+        }
+        #img-modal img {
+            max-width: 90%;
+            max-height: 80vh;
+            background: #fff;
+            padding: 8px;
+        }
+        .modal-close-btn {
+            margin-top: 16px;
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        /* question popup */
+        #q-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        #q-modal-inner {
+            background: #fff;
+            max-width: 700px;
+            width: 100%;
+            padding: 24px;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        #q-modal-inner .q-modal-close {
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            background: none;
+            border: none;
+            font-size: 26px;
+            color: #888;
+            cursor: pointer;
+        }
+        .bank-q { cursor: pointer; }
+        .bank-q:hover { border-color: #04AA6D !important; }
+
+        /* two columns on lesson pages */
+        .content-layout { display: flex; gap: 24px; align-items: flex-start; margin-top: 16px; }
         .notes-column { flex: 1.2; min-width: 0; }
-        .videos-column { flex: 0.9; min-width: 320px; position: sticky; top: 80px; background: #fdfdfe; padding: 20px; border: 1px solid #e9ecef; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.03); }
+        .videos-column {
+            flex: 0.9;
+            min-width: 280px;
+            position: sticky;
+            top: 70px;
+            background: #fafafa;
+            padding: 16px;
+            border: 1px solid #e0e0e0;
+        }
 
-        /* Video Box Layout */
-        .video-box { background: #f8f9fa; padding: 15px; border: 1px solid #dee2e6; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.02); }
-        .video-box h4 { font-size: 15px; margin-bottom: 10px; color: #343a40; font-weight: 600; }
-        .video-placeholder { background: #e9ecef; border-radius: 6px; padding: 40px 20px; text-align: center; color: #6c757d; font-size: 14px; }
-        .video-placeholder strong { display: block; margin-bottom: 6px; color: #495057; }
+        .video-box {
+            background: #f7f7f7;
+            padding: 12px;
+            border: 1px solid #ddd;
+            margin-bottom: 16px;
+        }
+        .video-box h4 { font-size: 14px; margin-bottom: 8px; color: #333; }
+        .video-placeholder {
+            background: #e8e8e8;
+            padding: 30px 16px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+        .video-placeholder strong { display: block; margin-bottom: 4px; color: #444; }
 
-        /* Resource Cards Grid */
-        .resource-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 25px; }
-        .resource-card { background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 8px; padding: 20px; transition: transform 0.2s, box-shadow 0.2s; }
-        .resource-card:hover { transform: translateY(-3px); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
-        .resource-card h3 { color: #04AA6D; margin-top: 0; margin-bottom: 10px; }
-        .resource-btn { display: inline-block; background-color: #04AA6D; color: white; padding: 8px 14px; border-radius: 4px; text-decoration: none; font-size: 14px; font-weight: 600; margin-top: 10px; transition: background 0.2s; }
+        /* cards on home / resources */
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
+            margin-top: 20px;
+        }
+        .resource-card {
+            background: #f8f8f8;
+            border: 1px solid #ddd;
+            padding: 16px;
+        }
+        .resource-card h3 { color: #04AA6D; margin-top: 0; margin-bottom: 8px; }
+        .resource-btn {
+            display: inline-block;
+            background-color: #04AA6D;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 3px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 8px;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
         .resource-btn:hover { background-color: #038e5b; color: white; }
 
-        /* Utility */
+        /* show/hide pages */
         .page-section { display: none; }
         .page-section.active { display: block; }
         .sub-section { display: none; }
         .sub-section.active { display: block; }
         
-        /* Footer */
-        footer { background-color: #1a1d20; color: #adb5bd; text-align: center; padding: 25px; font-size: 14px; border-top: 1px solid #2f353a; }
-        footer a { color: #04AA6D; text-decoration: none; font-weight: 500; }
+        footer {
+            background-color: #1a1d20;
+            color: #aaa;
+            text-align: center;
+            padding: 20px;
+            font-size: 13px;
+        }
+        footer a { color: #04AA6D; text-decoration: none; }
         footer a:hover { text-decoration: underline; }
 
-        /* Responsive */
+        .sidebar a.active-link {
+            background-color: #e8f5e9;
+            color: #04AA6D;
+            font-weight: bold;
+        }
+        .bank-empty {
+            display: none;
+            text-align: center;
+            padding: 30px 16px;
+            color: #777;
+            background: #f5f5f5;
+            margin-top: 12px;
+        }
+
+        /* phone / small screens */
         @media screen and (max-width: 1024px) {
             .content-layout { flex-direction: column; }
             .videos-column { position: relative; top: 0; width: 100%; min-width: 0; }
         }
         @media screen and (max-width: 768px) {
             .container { flex-direction: column; }
-            .sidebar { width: 100%; height: auto; position: relative; top: 0; transform: none !important; }
+            .sidebar { width: 100%; height: auto; position: relative; top: 0; }
             .sidebar.closed { display: none; }
-            .topnav { flex-wrap: wrap; }
-            .main { margin: 10px; padding: 20px; }
+            .topnav { overflow-x: auto; }
+            .main { margin: 8px; padding: 16px; }
+            h1 { font-size: 24px; }
         }
     </style>
 </head>
 <body>
+<!-- Compile1600: personal digital SAT study site (HTML/CSS/JS) -->
 
+    <!-- popups -->
     <div id="img-modal" onclick="closeModal(event)">
-        <img id="modal-img-content" src="" alt="Zoomed view">
-        <button class="modal-close-btn" onclick="closeModal(event, true)">Exit Full Screen ✕</button>
+        <img id="modal-img-content" src="" alt="zoomed">
+        <button class="modal-close-btn" onclick="closeModal(event, true)">close</button>
     </div>
 
+    <div id="q-modal" onclick="closeQModal(event)">
+        <div id="q-modal-inner" onclick="event.stopPropagation()">
+            <button class="q-modal-close" onclick="closeQModal(event, true)">&times;</button>
+            <div id="q-modal-body"></div>
+        </div>
+    </div>
+
+    <!-- top nav -->
     <div class="topnav">
         <div class="left-nav">
-            <button class="menu-toggle" onclick="toggleSidebar()" title="Toggle Sidebar">☰</button>
-            <a href="#" class="logo" onclick="switchPage('home')">Compile1600</a>
+            <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+            <a href="#" class="logo" onclick="switchPage('home'); return false;">Compile1600</a>
         </div>
         <div class="topnav-links">
             <button onclick="switchPage('home')" id="nav-page-home" class="active">Home</button>
-            <button onclick="switchPage('math', 'functions')" id="nav-page-math">Math Section</button>
-            <button onclick="switchPage('english', 'info')" id="nav-page-english">English Section</button>
-            <button onclick="switchPage('resources')" id="nav-page-resources">Free SAT Resources</button>
-            <a href="https://www.youtube.com/@Compile1600" target="_blank" class="yt-btn">▶ Free YouTube Lessons</a>
+            <button onclick="switchPage('math', 'functions')" id="nav-page-math">Math</button>
+            <button onclick="switchPage('english', 'info')" id="nav-page-english">English</button>
+            <button onclick="switchPage('resources')" id="nav-page-resources">Resources</button>
+            <button onclick="switchPage('bank')" id="nav-page-bank">Question Bank</button>
+            <a href="https://www.youtube.com/@Compile1600" target="_blank" class="yt-btn">YouTube</a>
         </div>
     </div>
 
@@ -126,113 +370,138 @@
         <div class="sidebar" id="main-sidebar">
             <div id="sidebar-math" class="sub-section active">
                 <h2>Algebra</h2>
-                <a href="#functions" onclick="switchSubTab('math', 'functions')">Functions</a>
-                <a href="#systems" onclick="switchSubTab('math', 'systems')">Systems of Equations</a>
-                <a href="#inequalities" onclick="switchSubTab('math', 'inequalities')">Linear Inequalities</a>
+                <a href="#functions" onclick="switchSubTab('math', 'functions'); return false;">Functions</a>
+                <a href="#systems" onclick="switchSubTab('math', 'systems'); return false;">Systems of Equations</a>
+                <a href="#inequalities" onclick="switchSubTab('math', 'inequalities'); return false;">Linear Inequalities</a>
                 
                 <h2>Advanced Math</h2>
-                <a href="#parabolas" onclick="switchSubTab('math', 'parabolas')">Parabolas &amp; Quadratics</a>
-                <a href="#exponents" onclick="switchSubTab('math', 'exponents')">Exponents &amp; Radicals</a>
-                <a href="#polynomials" onclick="switchSubTab('math', 'polynomials')">Polynomials &amp; Non-linear</a>
+                <a href="#parabolas" onclick="switchSubTab('math', 'parabolas'); return false;">Parabolas &amp; Quadratics</a>
+                <a href="#exponents" onclick="switchSubTab('math', 'exponents'); return false;">Exponents &amp; Radicals</a>
+                <a href="#polynomials" onclick="switchSubTab('math', 'polynomials'); return false;">Polynomials &amp; Non-linear</a>
 
                 <h2>Problem-Solving &amp; Data</h2>
-                <a href="#ratios" onclick="switchSubTab('math', 'ratios')">Ratios, Rates &amp; Proportions</a>
-                <a href="#stats" onclick="switchSubTab('math', 'stats')">Statistics &amp; Probability</a>
+                <a href="#ratios" onclick="switchSubTab('math', 'ratios'); return false;">Ratios, Rates &amp; Proportions</a>
+                <a href="#stats" onclick="switchSubTab('math', 'stats'); return false;">Statistics &amp; Probability</a>
 
                 <h2>Geometry &amp; Trigonometry</h2>
-                <a href="#geometry" onclick="switchSubTab('math', 'geometry')">Lines, Angles &amp; Triangles</a>
-                <a href="#trig" onclick="switchSubTab('math', 'trig')">Circles &amp; Trigonometry</a>
+                <a href="#geometry" onclick="switchSubTab('math', 'geometry'); return false;">Lines, Angles &amp; Triangles</a>
+                <a href="#trig" onclick="switchSubTab('math', 'trig'); return false;">Circles &amp; Trigonometry</a>
             </div>
 
             <div id="sidebar-english" class="sub-section">
                 <h2>Reading &amp; Writing</h2>
-                <a href="#info" onclick="switchSubTab('english', 'info')">Information &amp; Ideas</a>
-                <a href="#craft" onclick="switchSubTab('english', 'craft')">Craft &amp; Structure</a>
-                <a href="#conventions" onclick="switchSubTab('english', 'conventions')">Standard English Conventions</a>
-                <a href="#expression" onclick="switchSubTab('english', 'expression')">Expression of Ideas</a>
+                <a href="#info" onclick="switchSubTab('english', 'info'); return false;">Information &amp; Ideas</a>
+                <a href="#craft" onclick="switchSubTab('english', 'craft'); return false;">Craft &amp; Structure</a>
+                <a href="#conventions" onclick="switchSubTab('english', 'conventions'); return false;">Standard English Conventions</a>
+                <a href="#expression" onclick="switchSubTab('english', 'expression'); return false;">Expression of Ideas</a>
             </div>
         </div>
 
         <div class="main">
 
             <div id="page-home" class="page-section active">
-                <h1>Score Higher on the Digital SAT 🚀</h1>
-                <p style="font-size:17px; max-width:720px;">Free, focused lessons built for real score gains. High-yield Math, complete Reading &amp; Writing (all 4 official domains), the BOSS method, Desmos tips, daily practice questions, and free video walkthroughs.</p>
-                
-                <div class="w3-example">
-                    <h3>🎯 Ready to improve fast?</h3>
-                    <p>Start with the highest-yield topics, try today’s questions, and watch free explanations on the Compile1600 channel. Everything here is 100% free.</p>
-                    <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:12px;">
-                        <button class="resource-btn" onclick="switchPage('math', 'functions')">Start Math Lessons</button>
-                        <button class="resource-btn" onclick="switchPage('english', 'info')" style="background:#3b5bdb;">Start English Lessons</button>
-                        <a href="https://www.youtube.com/@Compile1600" target="_blank" class="resource-btn" style="background:#dc3545;">▶ Watch Free Videos</a>
-                    </div>
+                <h1>Compile1600</h1>
+                <p style="font-size:16px; max-width:640px; margin-bottom:8px;">A digital SAT study site I built to organize Math and Reading &amp; Writing notes, strategies, and practice questions in one place.</p>
+                <p style="font-size:14px; color:#666; margin-bottom:20px;">Free · No account · Works on phone</p>
+
+                <div style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:30px;">
+                    <button class="resource-btn" onclick="switchPage('math', 'functions')">Math notes</button>
+                    <button class="resource-btn" onclick="switchPage('english', 'info')" style="background:#3b5bdb;">English notes</button>
+                    <button class="resource-btn" onclick="switchPage('bank')" style="background:#495057;">Question bank</button>
+                    <a href="https://www.youtube.com/@Compile1600" target="_blank" class="resource-btn" style="background:#dc3545;">YouTube</a>
                 </div>
 
-                <h2>What You’ll Find Here</h2>
+                <h2>About this project</h2>
+                <p style="max-width:680px;">I made Compile1600 while studying for the digital SAT so I could keep strategies and examples in one place instead of scattered notes. It turned into a small web app with lessons, a practice bank, and a daily question tracker.</p>
+                <div class="w3-code" style="font-family:inherit; line-height:1.7;">
+                    <strong>Built with:</strong> HTML, CSS, and JavaScript (single file, no frameworks)<br>
+                    <strong>Includes:</strong> topic notes, Desmos tips, question bank with filters, daily practice + streak (saved in the browser)
+                </div>
+
+                <h2>Sections</h2>
                 <div class="resource-grid">
                     <div class="resource-card">
-                        <h3>Math Mastery</h3>
-                        <p>High-yield topics: functions, systems, quadratics, ratios, stats, geometry &amp; trig — with Desmos tips and practice questions.</p>
-                        <a href="#" class="resource-btn" onclick="switchPage('math', 'functions')">Explore Math →</a>
+                        <h3>Math</h3>
+                        <p>Functions, systems, parabolas, exponents, geometry, stats, and related problem types. Includes calculator tips for the digital SAT Desmos tool.</p>
+                        <a href="#" class="resource-btn" onclick="switchPage('math', 'functions'); return false;">Open Math</a>
                     </div>
                     <div class="resource-card">
-                        <h3>English Strategies</h3>
-                        <p>Full coverage of Information &amp; Ideas, Craft &amp; Structure, Standard English Conventions, and Expression of Ideas — plus the BOSS method and main-idea strategies.</p>
-                        <a href="#" class="resource-btn" onclick="switchPage('english', 'info')">Explore English →</a>
+                        <h3>English</h3>
+                        <p>Information &amp; Ideas, Craft &amp; Structure, Standard English Conventions, and Expression of Ideas — with strategies like QAPE, BOSS, and C-PIN.</p>
+                        <a href="#" class="resource-btn" onclick="switchPage('english', 'info'); return false;">Open English</a>
                     </div>
                     <div class="resource-card">
-                        <h3>Free Official Tools</h3>
-                        <p>Direct links to Bluebook, the official Desmos calculator, Khan Academy, and the Compile1600 YouTube channel.</p>
-                        <a href="#" class="resource-btn" onclick="switchPage('resources')">View Resources →</a>
+                        <h3>Question bank</h3>
+                        <p>Practice questions organized by domain and difficulty. Click a question to open it full screen, then check the answer.</p>
+                        <a href="#" class="resource-btn" onclick="switchPage('bank'); return false;">Practice</a>
+                    </div>
+                    <div class="resource-card">
+                        <h3>Resources</h3>
+                        <p>Links to Bluebook, Schoolhouse, official Desmos, Khan Academy, and my YouTube channel.</p>
+                        <a href="#" class="resource-btn" onclick="switchPage('resources'); return false;">View links</a>
                     </div>
                 </div>
 
-                <h2>📌 Questions of the Day</h2>
-                <p style="font-size:14px; color:#6c757d; margin-bottom:15px;">One Math + one English every day. Try them before checking the answer.</p>
+                <h2>Questions of the day</h2>
+                <p style="font-size:14px; color:#666; margin-bottom:14px;">One Math and one English. Try them before revealing the answer.</p>
 
                 <div class="resource-grid" style="margin-top:0;">
-                    <!-- Math QOTD -->
                     <div class="w3-example" id="qotd-math" style="margin:0;">
-                        <p style="font-size:13px; color:#6c757d; margin-bottom:8px;"><strong>Math</strong> · Parabolas</p>
+                        <p style="font-size:13px; color:#666; margin-bottom:8px;"><strong>Math</strong> · Parabolas</p>
                         <p><strong>h(x) = 2(x − 4)² − 32</strong></p>
                         <p>The graph of y = h(x) intersects the x-axis at (0, 0) and (t, 0). What is the value of t?</p>
-                        <button class="resource-btn" onclick="toggleAnswer('math')" id="qotd-btn-math" style="margin-top:8px;">Show Answer</button>
-                        <div id="qotd-answer-math" style="display:none; margin-top:15px; padding-top:12px; border-top:1px solid #dee2e6;">
+                        <button class="resource-btn" onclick="toggleAnswer('math')" id="qotd-btn-math" style="margin-top:8px;">Show answer</button>
+                        <div id="qotd-answer-math" style="display:none; margin-top:14px; padding-top:12px; border-top:1px solid #ddd;">
                             <p><strong>Answer: t = 8</strong></p>
                             <p style="font-size:14px;">Set h(x) = 0 → (x−4)² = 16 → x = 8 or x = 0.</p>
-                            <p style="font-size:14px; margin-bottom:0;"><a href="#" onclick="switchPage('math', 'parabolas')" style="color:#04AA6D; font-weight:600;">Review Parabolas →</a></p>
+                            <p style="font-size:14px; margin-bottom:0;"><a href="#" onclick="switchPage('math', 'parabolas'); return false;" style="color:#04AA6D; font-weight:600;">Parabolas notes →</a></p>
                         </div>
                     </div>
-
-                    <!-- English QOTD -->
                     <div class="w3-example" id="qotd-english" style="margin:0;">
-                        <p style="font-size:13px; color:#6c757d; margin-bottom:8px;"><strong>English</strong> · Standard English Conventions</p>
+                        <p style="font-size:13px; color:#666; margin-bottom:8px;"><strong>English</strong> · Conventions</p>
                         <p>The committee reviewed the proposal, it decided to postpone the vote.</p>
-                        <p>What is the main problem with the sentence above?</p>
-                        <button class="resource-btn" onclick="toggleAnswer('english')" id="qotd-btn-english" style="margin-top:8px;">Show Answer</button>
-                        <div id="qotd-answer-english" style="display:none; margin-top:15px; padding-top:12px; border-top:1px solid #dee2e6;">
-                            <p><strong>Answer: Comma splice (run-on)</strong></p>
-                            <p style="font-size:14px;">Two independent clauses are joined only by a comma. Fix with a period, semicolon, or comma + FANBOYS.</p>
-                            <p style="font-size:14px; margin-bottom:0;"><a href="#" onclick="switchPage('english', 'conventions')" style="color:#04AA6D; font-weight:600;">Review C-PIN &amp; Clauses →</a></p>
+                        <p>What is wrong with this sentence?</p>
+                        <button class="resource-btn" onclick="toggleAnswer('english')" id="qotd-btn-english" style="margin-top:8px;">Show answer</button>
+                        <div id="qotd-answer-english" style="display:none; margin-top:14px; padding-top:12px; border-top:1px solid #ddd;">
+                            <p><strong>Answer: Comma splice</strong></p>
+                            <p style="font-size:14px;">Two independent clauses joined only by a comma. Fix with a period, semicolon, or comma + FANBOYS.</p>
+                            <p style="font-size:14px; margin-bottom:0;"><a href="#" onclick="switchPage('english', 'conventions'); return false;" style="color:#04AA6D; font-weight:600;">Conventions notes →</a></p>
                         </div>
                     </div>
                 </div>
 
-                <div class="w3-note" style="margin-top:30px;">
-                    <p><strong>Daily habit:</strong> Bookmark this page, try both questions, then watch the matching lesson on <a href="https://www.youtube.com/@Compile1600" target="_blank" style="color:#856404; font-weight:600;">@Compile1600</a>. Consistency beats cramming.</p>
+                <div style="margin-top:16px; padding:12px 16px; background:#f3f3f3; display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:space-between;">
+                    <div>
+                        <span style="font-size:13px; color:#666;">Practice streak (this browser)</span><br>
+                        <strong id="streak-display" style="font-size:18px; color:#04AA6D;">0 days</strong>
+                    </div>
+                    <button class="resource-btn" onclick="markTodayDone()" style="margin:0;">Mark today done</button>
                 </div>
 
-                <div style="margin-top:25px; padding:20px; background:#e8f5e9; border-radius:8px; border-left:5px solid #04AA6D;">
-                    <h3 style="margin-top:0; color:#1a1d20;">🚀 Share &amp; Grow</h3>
-                    <p style="margin-bottom:12px;">Know someone studying for the digital SAT? Send them this free resource. More students using it = more free lessons we can keep adding.</p>
-                    <a href="https://www.youtube.com/@Compile1600" target="_blank" class="resource-btn" style="background:#dc3545;">▶ Subscribe on YouTube</a>
+                <h2>Suggested study order</h2>
+                <div class="w3-code" style="font-family:inherit; line-height:1.7;">
+                    <strong>Math:</strong> percents &amp; exponents → functions → systems → quadratics → geometry → stats<br>
+                    <strong>English:</strong> Information &amp; Ideas → Conventions → Craft &amp; Structure → Expression of Ideas<br>
+                    <strong>Each day:</strong> both questions of the day + a few bank problems
+                </div>
+
+                <div class="w3-note" style="margin-top:20px;">
+                    <p style="margin-bottom:0;">Use Bluebook for full-length practice tests. This site is for notes, strategies, and shorter practice between tests.</p>
+                </div>
+
+                <div style="margin-top:22px; padding:14px 16px; background:#f8f8f8; border:1px solid #ddd;">
+                    <p style="margin-bottom:10px; font-size:14px;">Share the site or watch the related videos:</p>
+                    <div style="display:flex; flex-wrap:wrap; gap:10px;">
+                        <button class="resource-btn" onclick="copySiteLink()" style="margin:0;">Copy link</button>
+                        <a href="https://www.youtube.com/@Compile1600" target="_blank" class="resource-btn" style="background:#dc3545; margin:0;">YouTube</a>
+                    </div>
+                    <p id="copy-feedback" style="display:none; margin:10px 0 0; font-size:13px; color:#04AA6D;">Link copied.</p>
                 </div>
             </div>
 
             <div id="page-resources" class="page-section">
-                <h1>Free SAT Resources 📚</h1>
-                <p>Curated official tools, free tutoring, and study aids so you can prepare efficiently without spending money.</p>
+                <h1>Free SAT resources</h1>
+                <p>Official tools and free stuff worth using.</p>
                 
                 <div class="resource-grid">
                     <div class="resource-card">
@@ -263,11 +532,400 @@
                 </div>
             </div>
 
+            <!-- QUESTION BANK -->
+
+            <!-- QUESTION BANK -->
+            <div id="page-bank" class="page-section">
+                <h1>Question Bank</h1>
+                <p style="max-width:720px; color:#495057;">Practice by domain and difficulty. Click a question to open it full screen.</p>
+
+                <div style="margin:18px 0 6px;">
+                    <span style="font-size:12px; font-weight:600; color:#868e96; letter-spacing:0.4px;">DOMAIN</span>
+                </div>
+                <div id="bank-domain-filters" style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:8px;">
+                    <button class="resource-btn bank-filter" data-filter="all" onclick="filterBank('all', this)" style="padding:8px 14px; font-size:13px; background:#04AA6D;">All domains</button>
+                    <button class="resource-btn bank-filter" data-filter="alg" onclick="filterBank('alg', this)" style="padding:8px 14px; font-size:13px; background:#495057;">Algebra</button>
+                    <button class="resource-btn bank-filter" data-filter="adv" onclick="filterBank('adv', this)" style="padding:8px 14px; font-size:13px; background:#495057;">Advanced Math</button>
+                    <button class="resource-btn bank-filter" data-filter="psd" onclick="filterBank('psd', this)" style="padding:8px 14px; font-size:13px; background:#495057;">Problem-Solving and Data Analysis</button>
+                    <button class="resource-btn bank-filter" data-filter="geo" onclick="filterBank('geo', this)" style="padding:8px 14px; font-size:13px; background:#495057;">Geometry and Trigonometry</button>
+                </div>
+                <div style="margin:14px 0 18px; display:flex; flex-wrap:wrap; gap:8px; align-items:center;">
+                    <span style="font-size:12px; font-weight:600; color:#868e96; letter-spacing:0.4px;">DIFFICULTY</span>
+                    <button class="resource-btn diff-filter" data-diff="all" onclick="filterDiff('all', this)" style="padding:6px 12px; font-size:12px; background:#04AA6D;">All</button>
+                    <button class="resource-btn diff-filter" data-diff="E" onclick="filterDiff('E', this)" style="padding:6px 12px; font-size:12px; background:#495057;">Easy</button>
+                    <button class="resource-btn diff-filter" data-diff="M" onclick="filterDiff('M', this)" style="padding:6px 12px; font-size:12px; background:#495057;">Medium</button>
+                    <button class="resource-btn diff-filter" data-diff="H" onclick="filterDiff('H', this)" style="padding:6px 12px; font-size:12px; background:#495057;">Hard</button>
+                    <span id="bank-count" style="margin-left:auto; font-size:13px; color:#6c757d;"></span>
+                </div>
+                <p style="font-size:13px; color:#868e96; margin:0 0 16px;">Click any question to open it full screen.</p>
+                <div id="bank-empty" class="bank-empty">No questions match these filters. Try All domains or All difficulty.</div>
+
+
+                <!-- Geometry & Trig -->
+                <div class="bank-q" onclick="openQModal(this)" data-domain="geo" data-diff="M" style="background:#fff; border:1px solid #dee2e6; border-radius:8px; padding:20px; margin-bottom:14px; box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+                    <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:10px; align-items:center;">
+                        <span style="font-size:11px; background:#e9ecef; color:#495057; padding:3px 8px; border-radius:4px; font-weight:600;">Geometry and Trigonometry</span>
+                        <span style="font-size:11px; background:#fff3cd; color:#856404; padding:3px 8px; border-radius:4px;">Medium</span>
+                        <span style="font-size:11px; color:#adb5bd;">Lines, angles, and triangles</span>
+                    </div>
+                    <p style="margin-bottom:12px;">Points Q, R, S, and T lie on line segment PV. Line segment RU intersects SX at W. Measure of ∠SQX is 48°, ∠SXQ is 86°, ∠SWU is 85°, and ∠VTU is 162°. What is the measure, in degrees, of ∠TUR?</p>
+                    <p style="font-size:13px; color:#6c757d; margin-bottom:10px;">Student-produced response (enter a number)</p>
+                    <button class="resource-btn" onclick="event.stopPropagation(); toggleBank(this)" style="padding:6px 14px; font-size:13px;">Show correct answer</button>
+                    <div class="bank-ans" style="display:none; margin-top:14px; padding:14px; background:#f8f9fa; border-radius:6px;">
+                        <p style="margin-bottom:6px;"><strong>Correct Answer: 17</strong></p>
+                        <p style="font-size:14px; margin-bottom:0; color:#495057;">Use triangle angle sum in △SQX, vertical angles at W, and the straight line at T to find ∠TUR = 17°.</p>
+                    
+                        <div style="margin-top:14px; padding:14px; background:#f1f3f5; border-radius:6px; border:1px dashed #ced4da; text-align:center;">
+                            <p style="margin:0 0 6px; font-size:13px; font-weight:600; color:#495057;">▶ Video walkthrough</p>
+                            <p style="margin:0; font-size:13px; color:#868e96;">Coming soon — solution video not uploaded yet</p>
+                            <a href="https://www.youtube.com/@Compile1600" target="_blank" style="display:inline-block; margin-top:8px; font-size:13px; color:#04AA6D; font-weight:600;">Compile1600 on YouTube →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bank-q" onclick="openQModal(this)" data-domain="geo" data-diff="E" style="background:#fff; border:1px solid #dee2e6; border-radius:8px; padding:20px; margin-bottom:14px; box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+                    <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:10px; align-items:center;">
+                        <span style="font-size:11px; background:#e9ecef; color:#495057; padding:3px 8px; border-radius:4px; font-weight:600;">Geometry and Trigonometry</span>
+                        <span style="font-size:11px; background:#d4edda; color:#155724; padding:3px 8px; border-radius:4px;">Easy</span>
+                        <span style="font-size:11px; color:#adb5bd;">Lines, angles, and triangles</span>
+                    </div>
+                    <p style="margin-bottom:12px;">Intersecting lines r, s, and t are shown. One angle measures 100° and another measures 25°. What is the value of x?</p>
+                    <p style="font-size:13px; color:#6c757d; margin-bottom:10px;">Student-produced response (enter a number)</p>
+                    <button class="resource-btn" onclick="event.stopPropagation(); toggleBank(this)" style="padding:6px 14px; font-size:13px;">Show correct answer</button>
+                    <div class="bank-ans" style="display:none; margin-top:14px; padding:14px; background:#f8f9fa; border-radius:6px;">
+                        <p style="margin-bottom:6px;"><strong>Correct Answer: 55</strong></p>
+                        <p style="font-size:14px; margin-bottom:0; color:#495057;">Linear pair with 100° gives 80°. Then x + 25 = 80, so x = 55.</p>
+                    
+                        <div style="margin-top:14px; padding:14px; background:#f1f3f5; border-radius:6px; border:1px dashed #ced4da; text-align:center;">
+                            <p style="margin:0 0 6px; font-size:13px; font-weight:600; color:#495057;">▶ Video walkthrough</p>
+                            <p style="margin:0; font-size:13px; color:#868e96;">Coming soon — solution video not uploaded yet</p>
+                            <a href="https://www.youtube.com/@Compile1600" target="_blank" style="display:inline-block; margin-top:8px; font-size:13px; color:#04AA6D; font-weight:600;">Compile1600 on YouTube →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bank-q" onclick="openQModal(this)" data-domain="geo" data-diff="M" style="background:#fff; border:1px solid #dee2e6; border-radius:8px; padding:20px; margin-bottom:14px; box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+                    <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:10px; align-items:center;">
+                        <span style="font-size:11px; background:#e9ecef; color:#495057; padding:3px 8px; border-radius:4px; font-weight:600;">Geometry and Trigonometry</span>
+                        <span style="font-size:11px; background:#fff3cd; color:#856404; padding:3px 8px; border-radius:4px;">Medium</span>
+                        <span style="font-size:11px; color:#adb5bd;">Lines, angles, and triangles</span>
+                    </div>
+                    <p style="margin-bottom:12px;">MQ and NR intersect at P. NP = QP and MP = PR. One angle at the intersection is 50° and another is 70°. What is the measure, in degrees, of ∠QMR?</p>
+                    <p style="font-size:13px; color:#6c757d; margin-bottom:10px;">Student-produced response (enter a number)</p>
+                    <button class="resource-btn" onclick="event.stopPropagation(); toggleBank(this)" style="padding:6px 14px; font-size:13px;">Show correct answer</button>
+                    <div class="bank-ans" style="display:none; margin-top:14px; padding:14px; background:#f8f9fa; border-radius:6px;">
+                        <p style="margin-bottom:6px;"><strong>Correct Answer: 80</strong></p>
+                        <p style="font-size:14px; margin-bottom:0; color:#495057;">Equal sides create isosceles triangles; vertical angles and angle sum give ∠QMR = 80°.</p>
+                    
+                        <div style="margin-top:14px; padding:14px; background:#f1f3f5; border-radius:6px; border:1px dashed #ced4da; text-align:center;">
+                            <p style="margin:0 0 6px; font-size:13px; font-weight:600; color:#495057;">▶ Video walkthrough</p>
+                            <p style="margin:0; font-size:13px; color:#868e96;">Coming soon — solution video not uploaded yet</p>
+                            <a href="https://www.youtube.com/@Compile1600" target="_blank" style="display:inline-block; margin-top:8px; font-size:13px; color:#04AA6D; font-weight:600;">Compile1600 on YouTube →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bank-q" onclick="openQModal(this)" data-domain="geo" data-diff="E" style="background:#fff; border:1px solid #dee2e6; border-radius:8px; padding:20px; margin-bottom:14px; box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+                    <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:10px; align-items:center;">
+                        <span style="font-size:11px; background:#e9ecef; color:#495057; padding:3px 8px; border-radius:4px; font-weight:600;">Geometry and Trigonometry</span>
+                        <span style="font-size:11px; background:#d4edda; color:#155724; padding:3px 8px; border-radius:4px;">Easy</span>
+                        <span style="font-size:11px; color:#adb5bd;">Area and volume</span>
+                    </div>
+                    <p style="margin-bottom:10px;">The circumference of the base of a right circular cylinder is 20π meters, and the height of the cylinder is 6 meters. What is the volume, in cubic meters, of the cylinder?</p>
+                    <div style="margin:10px 0 12px; padding-left:8px;">
+                        <p style="margin:4px 0;">A) 60π</p>
+                        <p style="margin:4px 0;">B) 120π</p>
+                        <p style="margin:4px 0;">C) 600π</p>
+                        <p style="margin:4px 0;">D) 2,400π</p>
+                    </div>
+                    <button class="resource-btn" onclick="event.stopPropagation(); toggleBank(this)" style="padding:6px 14px; font-size:13px;">Show correct answer</button>
+                    <div class="bank-ans" style="display:none; margin-top:14px; padding:14px; background:#f8f9fa; border-radius:6px;">
+                        <p style="margin-bottom:6px;"><strong>Correct Answer: C</strong></p>
+                        <p style="font-size:14px; margin-bottom:0; color:#495057;">2πr = 20π → r = 10. Volume = πr²h = π(100)(6) = 600π.</p>
+                    
+                        <div style="margin-top:14px; padding:14px; background:#f1f3f5; border-radius:6px; border:1px dashed #ced4da; text-align:center;">
+                            <p style="margin:0 0 6px; font-size:13px; font-weight:600; color:#495057;">▶ Video walkthrough</p>
+                            <p style="margin:0; font-size:13px; color:#868e96;">Coming soon — solution video not uploaded yet</p>
+                            <a href="https://www.youtube.com/@Compile1600" target="_blank" style="display:inline-block; margin-top:8px; font-size:13px; color:#04AA6D; font-weight:600;">Compile1600 on YouTube →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bank-q" onclick="openQModal(this)" data-domain="geo" data-diff="M" style="background:#fff; border:1px solid #dee2e6; border-radius:8px; padding:20px; margin-bottom:14px; box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+                    <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:10px; align-items:center;">
+                        <span style="font-size:11px; background:#e9ecef; color:#495057; padding:3px 8px; border-radius:4px; font-weight:600;">Geometry and Trigonometry</span>
+                        <span style="font-size:11px; background:#fff3cd; color:#856404; padding:3px 8px; border-radius:4px;">Medium</span>
+                        <span style="font-size:11px; color:#adb5bd;">Circles</span>
+                    </div>
+                    <p style="margin-bottom:10px;">A circle has center O. The length of arc ADC is 5π, and the central angle x = 100. What is the length of arc ABC?</p>
+                    <div style="margin:10px 0 12px; padding-left:8px;">
+                        <p style="margin:4px 0;">A) 9π</p>
+                        <p style="margin:4px 0;">B) 13π</p>
+                        <p style="margin:4px 0;">C) 18π</p>
+                        <p style="margin:4px 0;">D) 13π/2</p>
+                    </div>
+                    <button class="resource-btn" onclick="event.stopPropagation(); toggleBank(this)" style="padding:6px 14px; font-size:13px;">Show correct answer</button>
+                    <div class="bank-ans" style="display:none; margin-top:14px; padding:14px; background:#f8f9fa; border-radius:6px;">
+                        <p style="margin-bottom:6px;"><strong>Correct Answer: B</strong></p>
+                        <p style="font-size:14px; margin-bottom:0; color:#495057;">Arc length is proportional to central angle. Using the given arc and angle yields arc ABC = 13π.</p>
+                    
+                        <div style="margin-top:14px; padding:14px; background:#f1f3f5; border-radius:6px; border:1px dashed #ced4da; text-align:center;">
+                            <p style="margin:0 0 6px; font-size:13px; font-weight:600; color:#495057;">▶ Video walkthrough</p>
+                            <p style="margin:0; font-size:13px; color:#868e96;">Coming soon — solution video not uploaded yet</p>
+                            <a href="https://www.youtube.com/@Compile1600" target="_blank" style="display:inline-block; margin-top:8px; font-size:13px; color:#04AA6D; font-weight:600;">Compile1600 on YouTube →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bank-q" onclick="openQModal(this)" data-domain="geo" data-diff="M" style="background:#fff; border:1px solid #dee2e6; border-radius:8px; padding:20px; margin-bottom:14px; box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+                    <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:10px; align-items:center;">
+                        <span style="font-size:11px; background:#e9ecef; color:#495057; padding:3px 8px; border-radius:4px; font-weight:600;">Geometry and Trigonometry</span>
+                        <span style="font-size:11px; background:#fff3cd; color:#856404; padding:3px 8px; border-radius:4px;">Medium</span>
+                        <span style="font-size:11px; color:#adb5bd;">Right triangles and trigonometry</span>
+                    </div>
+                    <p style="margin-bottom:10px;">The perimeter of an isosceles right triangle is 18 + 18√2 inches. What is the length, in inches, of the hypotenuse?</p>
+                    <div style="margin:10px 0 12px; padding-left:8px;">
+                        <p style="margin:4px 0;">A) 9</p>
+                        <p style="margin:4px 0;">B) 9√2</p>
+                        <p style="margin:4px 0;">C) 18</p>
+                        <p style="margin:4px 0;">D) 18√2</p>
+                    </div>
+                    <button class="resource-btn" onclick="event.stopPropagation(); toggleBank(this)" style="padding:6px 14px; font-size:13px;">Show correct answer</button>
+                    <div class="bank-ans" style="display:none; margin-top:14px; padding:14px; background:#f8f9fa; border-radius:6px;">
+                        <p style="margin-bottom:6px;"><strong>Correct Answer: C</strong></p>
+                        <p style="font-size:14px; margin-bottom:0; color:#495057;">Legs x, hypotenuse x√2. x(2+√2) = 18(1+√2) → x = 9√2 → hypotenuse = 18.</p>
+                    
+                        <div style="margin-top:14px; padding:14px; background:#f1f3f5; border-radius:6px; border:1px dashed #ced4da; text-align:center;">
+                            <p style="margin:0 0 6px; font-size:13px; font-weight:600; color:#495057;">▶ Video walkthrough</p>
+                            <p style="margin:0; font-size:13px; color:#868e96;">Coming soon — solution video not uploaded yet</p>
+                            <a href="https://www.youtube.com/@Compile1600" target="_blank" style="display:inline-block; margin-top:8px; font-size:13px; color:#04AA6D; font-weight:600;">Compile1600 on YouTube →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bank-q" onclick="openQModal(this)" data-domain="geo" data-diff="E" style="background:#fff; border:1px solid #dee2e6; border-radius:8px; padding:20px; margin-bottom:14px; box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+                    <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:10px; align-items:center;">
+                        <span style="font-size:11px; background:#e9ecef; color:#495057; padding:3px 8px; border-radius:4px; font-weight:600;">Geometry and Trigonometry</span>
+                        <span style="font-size:11px; background:#d4edda; color:#155724; padding:3px 8px; border-radius:4px;">Easy</span>
+                        <span style="font-size:11px; color:#adb5bd;">Circles</span>
+                    </div>
+                    <p style="margin-bottom:10px;">x² + 20x + y² + 16y = −20 defines a circle in the xy-plane. What are the coordinates of the center?</p>
+                    <div style="margin:10px 0 12px; padding-left:8px;">
+                        <p style="margin:4px 0;">A) (−20, −16)</p>
+                        <p style="margin:4px 0;">B) (−10, −8)</p>
+                        <p style="margin:4px 0;">C) (10, 8)</p>
+                        <p style="margin:4px 0;">D) (20, 16)</p>
+                    </div>
+                    <button class="resource-btn" onclick="event.stopPropagation(); toggleBank(this)" style="padding:6px 14px; font-size:13px;">Show correct answer</button>
+                    <div class="bank-ans" style="display:none; margin-top:14px; padding:14px; background:#f8f9fa; border-radius:6px;">
+                        <p style="margin-bottom:6px;"><strong>Correct Answer: B</strong></p>
+                        <p style="font-size:14px; margin-bottom:0; color:#495057;">Complete the square: (x+10)² + (y+8)² = r². Center is (−10, −8).</p>
+                    
+                        <div style="margin-top:14px; padding:14px; background:#f1f3f5; border-radius:6px; border:1px dashed #ced4da; text-align:center;">
+                            <p style="margin:0 0 6px; font-size:13px; font-weight:600; color:#495057;">▶ Video walkthrough</p>
+                            <p style="margin:0; font-size:13px; color:#868e96;">Coming soon — solution video not uploaded yet</p>
+                            <a href="https://www.youtube.com/@Compile1600" target="_blank" style="display:inline-block; margin-top:8px; font-size:13px; color:#04AA6D; font-weight:600;">Compile1600 on YouTube →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bank-q" onclick="openQModal(this)" data-domain="geo" data-diff="M" style="background:#fff; border:1px solid #dee2e6; border-radius:8px; padding:20px; margin-bottom:14px; box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+                    <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:10px; align-items:center;">
+                        <span style="font-size:11px; background:#e9ecef; color:#495057; padding:3px 8px; border-radius:4px; font-weight:600;">Geometry and Trigonometry</span>
+                        <span style="font-size:11px; background:#fff3cd; color:#856404; padding:3px 8px; border-radius:4px;">Medium</span>
+                        <span style="font-size:11px; color:#adb5bd;">Right triangles and trigonometry</span>
+                    </div>
+                    <p style="margin-bottom:12px;">In a right triangle, one leg is 16 and the hypotenuse is 23. What is the value of sin x°, where x is the angle opposite the other leg?</p>
+                    <p style="font-size:13px; color:#6c757d; margin-bottom:10px;">Student-produced response (enter a number)</p>
+                    <button class="resource-btn" onclick="event.stopPropagation(); toggleBank(this)" style="padding:6px 14px; font-size:13px;">Show correct answer</button>
+                    <div class="bank-ans" style="display:none; margin-top:14px; padding:14px; background:#f8f9fa; border-radius:6px;">
+                        <p style="margin-bottom:6px;"><strong>Correct Answer: √273 / 23</strong></p>
+                        <p style="font-size:14px; margin-bottom:0; color:#495057;">Other leg = √(23²−16²) = √273. sin x = opposite/hypotenuse = √273/23.</p>
+                    
+                        <div style="margin-top:14px; padding:14px; background:#f1f3f5; border-radius:6px; border:1px dashed #ced4da; text-align:center;">
+                            <p style="margin:0 0 6px; font-size:13px; font-weight:600; color:#495057;">▶ Video walkthrough</p>
+                            <p style="margin:0; font-size:13px; color:#868e96;">Coming soon — solution video not uploaded yet</p>
+                            <a href="https://www.youtube.com/@Compile1600" target="_blank" style="display:inline-block; margin-top:8px; font-size:13px; color:#04AA6D; font-weight:600;">Compile1600 on YouTube →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bank-q" onclick="openQModal(this)" data-domain="geo" data-diff="M" style="background:#fff; border:1px solid #dee2e6; border-radius:8px; padding:20px; margin-bottom:14px; box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+                    <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:10px; align-items:center;">
+                        <span style="font-size:11px; background:#e9ecef; color:#495057; padding:3px 8px; border-radius:4px; font-weight:600;">Geometry and Trigonometry</span>
+                        <span style="font-size:11px; background:#fff3cd; color:#856404; padding:3px 8px; border-radius:4px;">Medium</span>
+                        <span style="font-size:11px; color:#adb5bd;">Lines, angles, and triangles</span>
+                    </div>
+                    <p style="margin-bottom:10px;">In triangles LMN and RST, ∠L = ∠R = 60°, LN = 10, and RT = 30. Which additional piece of information is sufficient to prove △LMN ~ △RST?</p>
+                    <div style="margin:10px 0 12px; padding-left:8px;">
+                        <p style="margin:4px 0;">A) MN = 7 and ST = 7</p>
+                        <p style="margin:4px 0;">B) MN = 7 and ST = 21</p>
+                        <p style="margin:4px 0;">C) ∠M = 70° and ∠S = 60°</p>
+                        <p style="margin:4px 0;">D) ∠M = 70° and ∠T = 50°</p>
+                    </div>
+                    <button class="resource-btn" onclick="event.stopPropagation(); toggleBank(this)" style="padding:6px 14px; font-size:13px;">Show correct answer</button>
+                    <div class="bank-ans" style="display:none; margin-top:14px; padding:14px; background:#f8f9fa; border-radius:6px;">
+                        <p style="margin-bottom:6px;"><strong>Correct Answer: B</strong></p>
+                        <p style="font-size:14px; margin-bottom:0; color:#495057;">LN/RT = 10/30 = 1/3 and MN/ST = 7/21 = 1/3, with the included equal angles → SAS similarity.</p>
+                    
+                        <div style="margin-top:14px; padding:14px; background:#f1f3f5; border-radius:6px; border:1px dashed #ced4da; text-align:center;">
+                            <p style="margin:0 0 6px; font-size:13px; font-weight:600; color:#495057;">▶ Video walkthrough</p>
+                            <p style="margin:0; font-size:13px; color:#868e96;">Coming soon — solution video not uploaded yet</p>
+                            <a href="https://www.youtube.com/@Compile1600" target="_blank" style="display:inline-block; margin-top:8px; font-size:13px; color:#04AA6D; font-weight:600;">Compile1600 on YouTube →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Algebra: Systems no solution (Hard) -->
+                <div class="bank-q" onclick="openQModal(this)" data-domain="alg" data-diff="H" style="background:#fff; border:1px solid #dee2e6; border-radius:8px; padding:20px; margin-bottom:14px; box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+                    <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:10px; align-items:center;">
+                        <span style="font-size:11px; background:#e9ecef; color:#495057; padding:3px 8px; border-radius:4px; font-weight:600;">Algebra</span>
+                        <span style="font-size:11px; background:#f8d7da; color:#721c24; padding:3px 8px; border-radius:4px;">Hard</span>
+                        <span style="font-size:11px; color:#adb5bd;">Systems of two linear equations</span>
+                    </div>
+                    <p style="margin-bottom:8px;">(3/2)y − (1/4)x = 2/3 − (3/2)y</p>
+                    <p style="margin-bottom:8px;">(1/2)x + 3/2 = py + 9/2</p>
+                    <p style="margin-bottom:12px;">In the given system of equations, p is a constant. If the system has no solution, what is the value of p?</p>
+                    <p style="font-size:13px; color:#6c757d; margin-bottom:10px;">Student-produced response (enter a number)</p>
+                    <button class="resource-btn" onclick="event.stopPropagation(); toggleBank(this)" style="padding:6px 14px; font-size:13px;">Show correct answer</button>
+                    <div class="bank-ans" style="display:none; margin-top:14px; padding:14px; background:#f8f9fa; border-radius:6px;">
+                        <p style="margin-bottom:6px;"><strong>Correct Answer: 6</strong></p>
+                        <div style="font-size:14px; color:#495057;">
+                            <p style="margin-bottom:8px;"><strong>1.</strong> Convert both equations into ax + by = c form.</p>
+                            <p style="margin-bottom:8px;">−(1/4)x + 3y = 2/3<br>(1/2)x − py = 3</p>
+                            <p style="margin-bottom:8px;"><strong>2.</strong> Write ratios (ignore signs). For no solution:</p>
+                            <p style="margin-bottom:8px;">(1/4)/(1/2) = 3/p &nbsp;&nbsp;≠&nbsp;&nbsp; (2/3)/3</p>
+                            <p style="margin-bottom:8px;"><strong>3.</strong> Simplify ratios:</p>
+                            <p style="margin-bottom:8px;">1/2 = 3/p &nbsp;&nbsp;≠&nbsp;&nbsp; 2/9</p>
+                            <p style="margin-bottom:0;"><strong>4.</strong> Solve for p: cross-multiply → p = 3 × 2 = <strong>6</strong></p>
+                        </div>
+                        <div style="margin-top:14px; padding:14px; background:#f1f3f5; border-radius:6px; border:1px dashed #ced4da; text-align:center;">
+                            <p style="margin:0 0 6px; font-size:13px; font-weight:600; color:#495057;">▶ Video walkthrough</p>
+                            <p style="margin:0; font-size:13px; color:#868e96;">Coming soon — solution video not uploaded yet</p>
+                            <a href="https://www.youtube.com/@Compile1600" target="_blank" style="display:inline-block; margin-top:8px; font-size:13px; color:#04AA6D; font-weight:600;">Compile1600 on YouTube →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bank-q" onclick="openQModal(this)" data-domain="alg" data-diff="H" style="background:#fff; border:1px solid #dee2e6; border-radius:8px; padding:20px; margin-bottom:14px; box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+                    <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:10px; align-items:center;">
+                        <span style="font-size:11px; background:#e9ecef; color:#495057; padding:3px 8px; border-radius:4px; font-weight:600;">Algebra</span>
+                        <span style="font-size:11px; background:#f8d7da; color:#721c24; padding:3px 8px; border-radius:4px;">Hard</span>
+                        <span style="font-size:11px; color:#adb5bd;">Systems of two linear equations</span>
+                    </div>
+                    <p style="margin-bottom:8px;">4x − 9y = 9y + 5</p>
+                    <p style="margin-bottom:8px;">hy = 2 + 4x</p>
+                    <p style="margin-bottom:12px;">In the given system of equations, h is a constant. If the system has no solution, what is the value of h?</p>
+                    <p style="font-size:13px; color:#6c757d; margin-bottom:10px;">Student-produced response (enter a number)</p>
+                    <button class="resource-btn" onclick="event.stopPropagation(); toggleBank(this)" style="padding:6px 14px; font-size:13px;">Show correct answer</button>
+                    <div class="bank-ans" style="display:none; margin-top:14px; padding:14px; background:#f8f9fa; border-radius:6px;">
+                        <p style="margin-bottom:6px;"><strong>Correct Answer: 18</strong></p>
+                        <div style="font-size:14px; color:#495057;">
+                            <p style="margin-bottom:8px;"><strong>1.</strong> Convert both equations into ax + by = c form.</p>
+                            <p style="margin-bottom:8px;">4x − 18y = 5<br>4x − hy = −2</p>
+                            <p style="margin-bottom:8px;"><strong>2.</strong> Write ratios (ignore signs). For no solution:</p>
+                            <p style="margin-bottom:8px;">4/4 = 18/h &nbsp;&nbsp;≠&nbsp;&nbsp; 5/2</p>
+                            <p style="margin-bottom:8px;"><strong>3.</strong> Simplify ratios:</p>
+                            <p style="margin-bottom:8px;">1 = 18/h</p>
+                            <p style="margin-bottom:0;"><strong>4.</strong> Solve for h: h = <strong>18</strong></p>
+                        </div>
+                        <div style="margin-top:14px; padding:14px; background:#f1f3f5; border-radius:6px; border:1px dashed #ced4da; text-align:center;">
+                            <p style="margin:0 0 6px; font-size:13px; font-weight:600; color:#495057;">▶ Video walkthrough</p>
+                            <p style="margin:0; font-size:13px; color:#868e96;">Coming soon — solution video not uploaded yet</p>
+                            <a href="https://www.youtube.com/@Compile1600" target="_blank" style="display:inline-block; margin-top:8px; font-size:13px; color:#04AA6D; font-weight:600;">Compile1600 on YouTube →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bank-q" onclick="openQModal(this)" data-domain="alg" data-diff="H" style="background:#fff; border:1px solid #dee2e6; border-radius:8px; padding:20px; margin-bottom:14px; box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+                    <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:10px; align-items:center;">
+                        <span style="font-size:11px; background:#e9ecef; color:#495057; padding:3px 8px; border-radius:4px; font-weight:600;">Algebra</span>
+                        <span style="font-size:11px; background:#f8d7da; color:#721c24; padding:3px 8px; border-radius:4px;">Hard</span>
+                        <span style="font-size:11px; color:#adb5bd;">Systems of two linear equations</span>
+                    </div>
+                    <p style="margin-bottom:8px;">(7/8)y − (5/8)x = 4/7 − (7/8)y</p>
+                    <p style="margin-bottom:8px;">(5/4)x + 7/4 = py + 15/4</p>
+                    <p style="margin-bottom:12px;">In the given system of equations, p is a constant. If the system has no solution, what is the value of p?</p>
+                    <p style="font-size:13px; color:#6c757d; margin-bottom:10px;">Student-produced response (enter a number)</p>
+                    <button class="resource-btn" onclick="event.stopPropagation(); toggleBank(this)" style="padding:6px 14px; font-size:13px;">Show correct answer</button>
+                    <div class="bank-ans" style="display:none; margin-top:14px; padding:14px; background:#f8f9fa; border-radius:6px;">
+                        <p style="margin-bottom:6px;"><strong>Correct Answer: 7/2</strong></p>
+                        <div style="font-size:14px; color:#495057;">
+                            <p style="margin-bottom:8px;"><strong>1.</strong> Convert both equations into ax + by = c form.</p>
+                            <p style="margin-bottom:8px;">−(5/8)x + (7/4)y = 4/7<br>(5/4)x − py = 2</p>
+                            <p style="margin-bottom:8px;"><strong>2.</strong> Write ratios (ignore signs). For no solution:</p>
+                            <p style="margin-bottom:8px;">(5/8)/(5/4) = (7/4)/p &nbsp;&nbsp;≠&nbsp;&nbsp; (4/7)/2</p>
+                            <p style="margin-bottom:8px;"><strong>3.</strong> Simplify ratios:</p>
+                            <p style="margin-bottom:8px;">(5/8)×(4/5) = 1/2 = (7/4)/p</p>
+                            <p style="margin-bottom:0;"><strong>4.</strong> Solve for p: 1/2 = (7/4)/p → p = (7/4)×2 = <strong>7/2</strong></p>
+                        </div>
+                        <div style="margin-top:14px; padding:14px; background:#f1f3f5; border-radius:6px; border:1px dashed #ced4da; text-align:center;">
+                            <p style="margin:0 0 6px; font-size:13px; font-weight:600; color:#495057;">▶ Video walkthrough</p>
+                            <p style="margin:0; font-size:13px; color:#868e96;">Coming soon — solution video not uploaded yet</p>
+                            <a href="https://www.youtube.com/@Compile1600" target="_blank" style="display:inline-block; margin-top:8px; font-size:13px; color:#04AA6D; font-weight:600;">Compile1600 on YouTube →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Advanced Math -->
+                <div class="bank-q" onclick="openQModal(this)" data-domain="adv" data-diff="M" style="background:#fff; border:1px solid #dee2e6; border-radius:8px; padding:20px; margin-bottom:14px; box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+                    <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:10px; align-items:center;">
+                        <span style="font-size:11px; background:#e9ecef; color:#495057; padding:3px 8px; border-radius:4px; font-weight:600;">Advanced Math</span>
+                        <span style="font-size:11px; background:#fff3cd; color:#856404; padding:3px 8px; border-radius:4px;">Medium</span>
+                        <span style="font-size:11px; color:#adb5bd;">Nonlinear functions</span>
+                    </div>
+                    <p style="margin-bottom:10px;">h(x) = 2(x − 4)² − 32. The graph of y = h(x) intersects the x-axis at (0, 0) and (t, 0). What is the value of t?</p>
+                    <div style="margin:10px 0 12px; padding-left:8px;">
+                        <p style="margin:4px 0;">A) 1</p>
+                        <p style="margin:4px 0;">B) 2</p>
+                        <p style="margin:4px 0;">C) 4</p>
+                        <p style="margin:4px 0;">D) 8</p>
+                    </div>
+                    <button class="resource-btn" onclick="event.stopPropagation(); toggleBank(this)" style="padding:6px 14px; font-size:13px;">Show correct answer</button>
+                    <div class="bank-ans" style="display:none; margin-top:14px; padding:14px; background:#f8f9fa; border-radius:6px;">
+                        <p style="margin-bottom:6px;"><strong>Correct Answer: D</strong></p>
+                        <p style="font-size:14px; margin-bottom:0; color:#495057;">2(x−4)² − 32 = 0 → (x−4)² = 16 → x = 8 or x = 0.</p>
+                    
+                        <div style="margin-top:14px; padding:14px; background:#f1f3f5; border-radius:6px; border:1px dashed #ced4da; text-align:center;">
+                            <p style="margin:0 0 6px; font-size:13px; font-weight:600; color:#495057;">▶ Video walkthrough</p>
+                            <p style="margin:0; font-size:13px; color:#868e96;">Coming soon — solution video not uploaded yet</p>
+                            <a href="https://www.youtube.com/@Compile1600" target="_blank" style="display:inline-block; margin-top:8px; font-size:13px; color:#04AA6D; font-weight:600;">Compile1600 on YouTube →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bank-q" onclick="openQModal(this)" data-domain="adv" data-diff="M" style="background:#fff; border:1px solid #dee2e6; border-radius:8px; padding:20px; margin-bottom:14px; box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+                    <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:10px; align-items:center;">
+                        <span style="font-size:11px; background:#e9ecef; color:#495057; padding:3px 8px; border-radius:4px; font-weight:600;">Advanced Math</span>
+                        <span style="font-size:11px; background:#fff3cd; color:#856404; padding:3px 8px; border-radius:4px;">Medium</span>
+                        <span style="font-size:11px; color:#adb5bd;">Nonlinear equations</span>
+                    </div>
+                    <p style="margin-bottom:10px;">2x² − 2 = 2x + 3. Which of the following is a solution to the equation?</p>
+                    <div style="margin:10px 0 12px; padding-left:8px;">
+                        <p style="margin:4px 0;">A) 2</p>
+                        <p style="margin:4px 0;">B) 1 − √11</p>
+                        <p style="margin:4px 0;">C) ½ + √11</p>
+                        <p style="margin:4px 0;">D) (1 + √11)/2</p>
+                    </div>
+                    <button class="resource-btn" onclick="event.stopPropagation(); toggleBank(this)" style="padding:6px 14px; font-size:13px;">Show correct answer</button>
+                    <div class="bank-ans" style="display:none; margin-top:14px; padding:14px; background:#f8f9fa; border-radius:6px;">
+                        <p style="margin-bottom:6px;"><strong>Correct Answer: D</strong></p>
+                        <p style="font-size:14px; margin-bottom:0; color:#495057;">2x² − 2x − 5 = 0 → x = [1 ± √11]/2. The listed solution is (1+√11)/2.</p>
+                        <div style="margin-top:14px; padding:14px; background:#f1f3f5; border-radius:6px; border:1px dashed #ced4da; text-align:center;">
+                            <p style="margin:0 0 6px; font-size:13px; font-weight:600; color:#495057;">▶ Video walkthrough</p>
+                            <p style="margin:0; font-size:13px; color:#868e96;">Coming soon — solution video not uploaded yet</p>
+                            <a href="https://www.youtube.com/@Compile1600" target="_blank" style="display:inline-block; margin-top:8px; font-size:13px; color:#04AA6D; font-weight:600;">Compile1600 on YouTube →</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
             <div id="page-math" class="page-section">
                 
                 <div id="sub-functions" class="sub-section active">
                     <h1>Algebra: Functions</h1>
-                    <p>Master function notation, interpretation, and nested function evaluation for the digital SAT.</p>
+                    <p>Function notation, tables, nested functions, and how this shows up on the digital SAT.</p>
                     
                     <h2>Table of Content</h2>
                     <ul>
@@ -304,21 +962,7 @@
                                 <p><strong>How to recognize these questions:</strong> They will always feature expressions asking for values like f(?), g(?), or nested notations like f(g(x)).</p>
                             </div>
 
-                            <h2>Practice Questions</h2>
-                            <div class="w3-code">
-                                <p><strong>Question 1:</strong><br>
-                                If f(x) = -2x + 5, what is f(-3x) equal to?</p>
-                                <br>
-                                <p><strong>Question 2:</strong><br>
-                                f(x) = 3/2x + b<br>
-                                <em>In the function above, b is a constant. If f(6) = 7, what is the value of f(-2)?</em></p>
-                                <br>
-                                <p><strong>Question 3:</strong><br>
-                                <em>A function f satisfies f(2) = 3 and f(3) = 5. A function g satisfies g(3) = 2 and g(5) = 6. What is the value of f(g(3))?</em></p>
-                                <br>
-                                <p><strong>Question 4:</strong><br>
-                                <em>For the function f, f(cx) = x - 8, for all values of x, where c is a constant. If f(2) = 35, what is the value of c?</em></p>
-                            </div>
+                            
                         </div>
 
                         <div class="videos-column">
@@ -343,74 +987,96 @@
 
                 <div id="sub-systems" class="sub-section">
                     <h1>Algebra: Systems of Equations</h1>
-                    <p>When there are two or more equations solving for two or more variables.</p>
+                    <p>Two or more equations with two or more variables. If you see more than one equation in a question, it’s almost always a systems question.</p>
                     
                     <h2>Table of Content</h2>
                     <ul>
-                        <li>The number of solution/intersection [Matching rule]</li>
-                        <li>Solving for a variable [subs / Elimination] → use Desmos</li>
-                        <li>Solve for an expression [Ex. Find x + y] - [Solve as a whole]</li>
+                        <li>How to recognize a systems question</li>
+                        <li>Type 1 — Number of solutions (Matching rule)</li>
+                        <li>Type 2 — Solving for a variable (substitution / elimination)</li>
+                        <li>Type 3 — Solving for an expression (solve as a whole)</li>
+                        <li>Practice Tips</li>
                     </ul>
 
                     <div class="content-layout">
                         <div class="notes-column">
-                            <h2>The Number of Solution / Intersection [Match Rule]</h2>
-                            <p>The match rule is simply where you write the ratio between the coefficient of the x value, the ratio of the y values, and the ratio of the answers the equations equal to.</p>
+                            <h2>How to recognize</h2>
+                            <p>One equation by itself is just an equation. Once there are <strong>two or more equations</strong>, it’s a system. On the SAT you’ll almost always get two equations and two variables.</p>
+
+                            <h2>Type 1 — Number of solutions (Matching rule)</h2>
+                            <p>These ask for the value of a constant so the system has <strong>no solution</strong>, <strong>one solution</strong>, or <strong>infinitely many solutions</strong>.</p>
+                            <p>Write both equations in ax + by = c form, then compare the ratios of the coefficients (you can ignore signs when setting up the ratios).</p>
                             
                             <div class="w3-code">
-                                Example: <br>
+                                Example:<br>
                                 2x + 3y = 5<br>
                                 4x + cy = 8<br><br>
-                                Ratios (Equation 1 / Equation 2):<br>
                                 x-ratio: 2/4 = 1/2<br>
-                                y-ratio: 3/c = 3/c<br>
-                                constant ratio: 5/8 = 5/8
+                                y-ratio: 3/c<br>
+                                constant ratio: 5/8
                             </div>
 
                             <div class="w3-note">
-                                <p><strong>Condition for No Solution:</strong> The ratio of the x values must be equal to the ratio of the y values, but <em>not</em> equal to the ratio of the constant numbers after the equals sign.</p>
-                                <p>[a/b = c/d] ≠ e/f → No solution</p>
+                                <p><strong>No solution</strong> (parallel lines, never meet): x-ratio = y-ratio, but that is <em>not</em> equal to the constant ratio.</p>
+                                <p>a/b = c/d &nbsp;≠&nbsp; e/f</p>
                             </div>
 
                             <div class="w3-example">
-                                <p><strong>Condition for Infinitely Many Solutions:</strong> All three ratios are completely equal.</p>
-                                <p>[a/b = c/d] = e/f → Infinitely many solutions</p>
+                                <p><strong>Infinitely many solutions</strong> (same line): all three ratios are equal.</p>
+                                <p>a/b = c/d = e/f</p>
                             </div>
 
-                            <h2>Solve for an Expression [Ex. Find x + y] - [Solve as a Whole]</h2>
-                            <p>Match the coefficients of the given equations to the target expression by adding equations together as a whole unit.</p>
+                            <div class="w3-note">
+                                <p><strong>One solution</strong> (lines cross once): the x-ratio is <em>not</em> equal to the y-ratio. They intersect at exactly one point.</p>
+                            </div>
+
+                            <p>Quick solve for no solution: set the x-ratio equal to the y-ratio and cross-multiply to find the constant. Then check that the constant ratio is different.</p>
+
+                            <h2>Type 2 — Solving for a variable</h2>
+                            <p>The question asks for the value of x, y, or some other single letter. Use <strong>elimination</strong> or <strong>substitution</strong>. Elimination is often faster on the SAT.</p>
+
+                            <h3>Elimination</h3>
+                            <p>Make one variable’s coefficients match (by multiplying an equation), then add or subtract to cancel that variable.</p>
+                            <div class="w3-code">
+                                3x + 2y = 9<br>
+                                5x − y = −11<br><br>
+                                Multiply the second equation by 2:<br>
+                                10x − 2y = −22<br><br>
+                                Add to the first: 13x = −13 → x = −1<br>
+                                Plug back in: 5(−1) − y = −11 → y = 6
+                            </div>
+
+                            <h3>Substitution</h3>
+                            <p>Solve one equation for one variable, then plug that expression into the other equation. Use this when one variable is already easy to isolate (e.g. y = 2x + 1).</p>
+                            <p>On the digital SAT, typing both equations into <strong>Desmos</strong> and clicking the intersection is the fastest check for Type 2 — but medium/hard questions are sometimes written so Desmos alone isn’t enough, so know elimination and substitution too.</p>
+
+                            <h2>Type 3 — Solving for an expression</h2>
+                            <p>The question asks for something like <strong>5x + 5y</strong> or <strong>x + y</strong>, not a single variable. Do <strong>not</strong> solve for x and y separately — that takes too long. Combine the equations as a whole so the left side matches the expression you need.</p>
                             
                             <div class="w3-example">
-                                <p><strong>Example:</strong> Solve for 5x + 5y, given:</p>
+                                <p><strong>Example:</strong> What is the value of 5x + 5y?</p>
                                 <p>2x + 3y = 1200<br>3x + 2y = 1300</p>
-                                <p>Add coefficients: 2 + 3 = 5 (for x) and 3 + 2 = 5 (for y).<br>
-                                Add answers: 1200 + 1300 = 2500.<br>
-                                Therefore, 5x + 5y = 2500.</p>
+                                <p>Add the equations: (2+3)x + (3+2)y = 1200 + 1300<br>
+                                → 5x + 5y = 2500</p>
                             </div>
+                            <p>Same idea works with subtracting or multiplying an equation first if the coefficients don’t already line up.</p>
 
-                            <h2>Practice Questions</h2>
-                            <div class="w3-code">
-                                <p><strong>Question 1:</strong><br>
-                                3/2y - 1/4x = 2/3 - 3/2y<br>
-                                1/2x + 3/2 = py + 9/2<br>
-                                <em>In the given system of equations, p is a constant. If the system has no solution, what is the value of p?</em></p>
-                                <br>
-                                <p><strong>Question 2:</strong><br>
-                                4x - 9y = 9y + 5<br>
-                                hy = 2 + 4x<br>
-                                <em>In the given system of equations, h is a constant. If the system has no solution, what is the value of h?</em></p>
-                                <br>
-                                <p><strong>Question 3:</strong><br>
-                                7/8y - 5/8x = 4/7 - 7/8y<br>
-                                5/4x + 7/4 = py + 15/4<br>
-                                <em>In the given system of equations, p is a constant. If the system has no solution, what is the value of p?</em></p>
-                            </div>
+                            <h2>Practice Tips</h2>
+                            <ul>
+                                <li>See two equations → treat it as a system immediately.</li>
+                                <li>No solution / infinite solutions → Matching rule (ratios). Don’t graph by hand.</li>
+                                <li>Asked for one variable → elimination first; substitution if one variable is already isolated. Confirm with Desmos when you can.</li>
+                                <li>Asked for an expression (x + y, 3x − 2y, etc.) → combine equations as a whole. Solving for x and y separately is slower and messier.</li>
+                                <li>Always put both equations in ax + by = c before comparing ratios.</li>
+                                <li>Ignore signs when setting up ratio equality for the matching rule; be careful with signs when you actually add/subtract equations.</li>
+                                <li>After you find a constant for “no solution,” quickly check that the constant ratio is different so you didn’t accidentally get infinite solutions.</li>
+                            </ul>
                         </div>
 
                         <div class="videos-column">
                             <div class="desmos-box" style="margin-top: 0;">
                                 <h3>📊 Desmos Tip for Systems</h3>
-                                <p>Type both equations directly into Desmos (e.g., <strong>2x + 3y = 5</strong> and <strong>4x + cy = 8</strong> using a slider for c). Look directly at where the lines intersect or adjust the slider until the lines are parallel (no solution) or overlap completely (infinite solutions)!</p>
+                                <p>Type both equations into Desmos. One intersection = one solution. Parallel lines = no solution. Same line = infinite solutions. For a constant (like c or p), add a slider and drag until the lines match the condition you need.</p>
                             </div>
 
                             <h2>▶ YouTube Video Tutorials</h2>
@@ -429,15 +1095,64 @@
 
                 <div id="sub-inequalities" class="sub-section">
                     <h1>Algebra: Linear Inequalities</h1>
-                    <p>Working with inequalities requires flipping the inequality sign whenever you multiply or divide by a negative number.</p>
-                    <div class="w3-note">
-                        <p><strong>Tip:</strong> Graphing inequalities on the SAT helps visualize boundary regions and constraint overlap.</p>
+                    <p>One-variable and two-variable inequalities, systems of inequalities, and when to flip the inequality sign.</p>
+
+                    <h2>Table of Content</h2>
+                    <ul>
+                        <li>The Flip Rule</li>
+                        <li>Graphing on a number line</li>
+                        <li>Systems of inequalities</li>
+</ul>
+
+                    <div class="content-layout">
+                        <div class="notes-column">
+                            <h2>The Flip Rule</h2>
+                            <p>Whenever you multiply or divide both sides of an inequality by a <strong>negative</strong> number, you must flip the inequality sign.</p>
+                            <div class="w3-code">
+                                −2x &gt; 6<br>
+                                Divide by −2 → flip the sign<br>
+                                x &lt; −3
+                            </div>
+                            <div class="w3-note">
+                                <p>Only multiplication or division by a negative triggers the flip. Adding or subtracting never does.</p>
+                            </div>
+
+                            <h2>Graphing on a Number Line</h2>
+                            <ul>
+                                <li>Open circle (○) for &lt; or &gt;</li>
+                                <li>Closed circle (●) for ≤ or ≥</li>
+                                <li>Shade the direction that makes the inequality true</li>
+                            </ul>
+
+                            <h2>Systems of Inequalities</h2>
+                            <p>When two or more inequalities appear together, the solution is the region that satisfies <strong>all</strong> of them at once (the overlap).</p>
+                            <p>On the digital SAT, Desmos is extremely helpful: type both inequalities and look at the overlapping shaded region.</p>
+
+                            
+
+                            
+                        </div>
+
+                        <div class="videos-column">
+                            <div class="desmos-box" style="margin-top:0;">
+                                <h3>📊 Desmos Tip</h3>
+                                <p>Type inequalities directly (e.g. <strong>y ≥ 2x − 1</strong>). Desmos shades the region automatically. Add a second inequality to see the overlap instantly.</p>
+                            </div>
+                            <h2>▶ YouTube Video Tutorials</h2>
+                            <div class="video-box">
+                                <h4>Full Masterclass Video</h4>
+                                <div class="video-placeholder">
+                                    <strong>Video coming soon</strong>
+                                    <a href="https://www.youtube.com/@Compile1600" target="_blank" style="color:#04AA6D; font-weight:600;">Watch free lessons on YouTube →</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div id="sub-parabolas" class="sub-section">
                     <h1>Advanced Math: Parabolas &amp; Quadratics</h1>
-                    <p>Learn how to master quadratics, zeros, roots, vertex formulas, and discriminants quickly for the SAT.</p>
+                    <p>Zeros, roots, sum/product shortcuts, discriminant, vertex, and the usual parabola question types.</p>
                     
                     <h2>Table of Content</h2>
                     <ul>
@@ -448,6 +1163,7 @@
                         <li>Vertex</li>
                         <li>Vertex form</li>
                         <li>Standard form</li>
+                        <li>Practice Tips</li>
                     </ul>
 
                     <div class="content-layout">
@@ -460,56 +1176,65 @@
                             </div>
 
                             <h2>2. Finding the Roots</h2>
-                            <p>Finding the roots means setting a quadratic equation equal to zero (because at an x-intercept, y must be 0).</p>
+                            <p>Finding the roots means setting a quadratic equal to zero (at an x-intercept, y = 0). How to recognize: highest power is 2 (x² term).</p>
                             <div class="w3-code">
                                 Standard Quadratic Form: ax² + bx + c = 0
                             </div>
                             <p>Two main ways to solve:</p>
                             <ul>
                                 <li>
-                                    <strong>Solve by factoring</strong>
+                                    <strong>Factoring (prefer this)</strong>
                                     <div class="w3-example" style="text-align: center; margin: 10px 0;">
                                         <img src="https://www.chilimath.com/wp-content/uploads/2019/02/qfacm-ex6b.png" alt="Quadratic factoring example" class="zoomable-img" onclick="openModal(this)">
                                         <p style="font-size: 13px; color: #6c757d; margin-top: 5px;"><em>Click image to view full screen</em></p>
                                     </div>
+                                    <p style="font-size:14px;">Always try factoring first — it’s faster.</p>
                                 </li>
                                 <li>
-                                    <strong>Use the quadratic formula</strong>
+                                    <strong>Quadratic formula</strong>
                                     <div class="w3-example" style="text-align: center; margin: 10px 0;">
                                         <img src="https://www.onlinemathlearning.com/image-files/quadratic-formula.png" alt="Quadratic formula" class="zoomable-img" onclick="openModal(this)">
                                         <p style="font-size: 13px; color: #6c757d; margin-top: 5px;"><em>Click image to view full screen</em></p>
                                     </div>
+                                    <p style="font-size:14px;">Use when factoring fails or when the answer choices already have radicals / ± in them.</p>
                                 </li>
                             </ul>
+                            <div class="w3-note">
+                                <p>On the digital SAT, you can also type the equation into Desmos and read the x-intercepts — but still know factoring for speed and for when the question is abstract (letters only).</p>
+                            </div>
 
                             <h2>3. Sum of the Roots</h2>
-                            <p>After finding the two solutions (by factoring or the quadratic formula), you can add them together. The fastest way uses the coefficients:</p>
+                            <p>When the question asks for the <strong>sum of the solutions</strong>, do <em>not</em> find each root and add. Use the coefficient shortcut:</p>
                             <div class="w3-code">
                                 Sum of roots = −b / a
                             </div>
                             <div class="w3-note">
-                                <p><strong>Note:</strong> −b / (2a) gives the <em>x-coordinate of the vertex</em> (the midpoint / average of the two roots).</p>
+                                <p><strong>Note:</strong> −b / (2a) is the <em>x-coordinate of the vertex</em> (midpoint / average of the two roots). Don’t mix the two formulas up.</p>
                             </div>
 
                             <h2>4. Product of the Roots</h2>
-                            <p>Instead of adding the roots, multiply them. The quick formula is:</p>
+                            <p>Same idea — don’t solve for each root. Multiply using coefficients:</p>
                             <div class="w3-code">
                                 Product of roots = c / a
                             </div>
 
-                            <h2>5. Discriminants</h2>
-                            <p>The discriminant tells you <strong>how many real solutions</strong> (roots) the parabola has.</p>
+                            <h2>5. Discriminants (number of roots)</h2>
+                            <p>The discriminant tells you <strong>how many real solutions</strong> the parabola has.</p>
                             <div class="w3-code">
                                 Discriminant = b² − 4ac
                             </div>
                             <ul>
                                 <li>Positive → 2 real roots</li>
-                                <li>Zero → 1 real root (repeated)</li>
+                                <li>Zero → 1 real root (repeated / vertex on the x-axis)</li>
                                 <li>Negative → no real roots</li>
                             </ul>
                             <div class="w3-example" style="text-align: center;">
                                 <img src="https://d20khd7ddkh5ls.cloudfront.net/discriminant_2.png" alt="Discriminant graphical meaning" class="zoomable-img" onclick="openModal(this)">
                                 <p style="font-size: 13px; color: #6c757d; margin-top: 5px;"><em>Click image to view full screen</em></p>
+                            </div>
+                            <div class="w3-note">
+                                <p><strong>Only for parabolas.</strong> Discriminant needs a, b, c from ax² + bx + c. Don’t use it on systems of two lines — for lines use the matching rule (parallel = no solution, same line = infinite).</p>
+                                <p>A second type of question asks how many times a <em>line</em> intersects a parabola. Set them equal, rearrange into a quadratic, then use the discriminant on that quadratic.</p>
                             </div>
 
                             <h2>6. Vertex</h2>
@@ -550,47 +1275,18 @@
                             </div>
                             <p>where r and s are the roots (x-intercepts).</p>
 
-                            <h2>Practice Questions</h2>
-                            <div class="w3-code">
-                                <p><strong>Question 1:</strong><br>
-                                h(x) = 2(x − 4)² − 32<br>
-                                The quadratic function h is defined as shown. In the xy-plane, the graph of y = h(x) intersects the x-axis at the points (0, 0) and (t, 0), where t is a constant. What is the value of t?</p>
-                                <br>
-                                <p><strong>Question 2:</strong><br>
-                                (x − 47)² = 1<br>
-                                What is the sum of the given solutions?</p>
-                                <br>
-                                <p><strong>Question 3:</strong><br>
-                                2x² − 2 = 2x + 3<br>
-                                Which of the following is a solution to the equation above?<br>
-                                A) 2<br>
-                                B) 1 − √11<br>
-                                C) 1 + √11<br>
-                                D) ½ + √11<br>
-                                E) (1 + √11) / 2</p>
-                                <br>
-                                <p><strong>Question 4:</strong><br>
-                                r² + qr = 2r − 55<br>
-                                In the given equation, q is an integer constant. The equation has no real solutions. What is the largest possible value of q?</p>
-                                <br>
-                                <p><strong>Question 5:</strong><br>
-                                f(x) = ax² + 4x + c<br>
-                                In the given quadratic function, a and c are constants. The graph of y = f(x) in the xy-plane is a parabola that opens upward and has a vertex at the point (h, k), where h and k are constants. If k &lt; 0 and f(−9) = f(3), which of the following must be true?<br>
-                                I. c &lt; 0<br>
-                                II. a ≥ 1<br>
-                                A) I only<br>
-                                B) II only<br>
-                                C) I and II<br>
-                                D) Neither I nor II</p>
-                                <br>
-                                <p><strong>Question 6:</strong><br>
-                                An auditorium has seats for 1800 people. Tickets currently cost $4.00. For each $1 increase in ticket price, 100 fewer tickets will be sold. This situation is modeled by<br>
-                                y = −100x² + 1400x + 7200<br>
-                                where x is the increase in ticket price (in dollars) and y is the revenue. At what value of x is the maximum of the graph?</p>
-                                <br>
-                                <p><strong>Question 7:</strong><br>
-                                The expression (3x − 23)(19x + 6) is equivalent to ax² + bx + c, where a, b, and c are constants. What is the value of b?</p>
-                            </div>
+                            <h2>Practice Tips</h2>
+                            <ul>
+                                <li>See x² → treat it as a parabola/quadratic question.</li>
+                                <li>Roots = zeros = solutions = x-intercepts. All mean “where y = 0.”</li>
+                                <li>Finding roots: factor first. Quadratic formula only when factoring fails or answers show radicals / ±.</li>
+                                <li>Asked for sum of solutions → −b/a. Asked for product → c/a. Do <strong>not</strong> solve for each root first.</li>
+                                <li>Asked for number of solutions / “how many real roots” → discriminant b² − 4ac.</li>
+                                <li>Discriminant is for quadratics only — not for two linear equations (use matching rule for lines).</li>
+                                <li>Line intersecting a parabola: set equal, bring to one side, then discriminant on the resulting quadratic.</li>
+                                <li>Vertex x-coordinate is −b/(2a) — also the average of the two roots.</li>
+                                <li>On digital SAT, Desmos can show intercepts and vertex fast; still know the shortcuts for abstract (letter-only) problems.</li>
+                            </ul>
                         </div>
 
                         <div class="videos-column">
@@ -615,7 +1311,7 @@
 
                 <div id="sub-exponents" class="sub-section">
                     <h1>Advanced Math: Exponents &amp; Radicals</h1>
-                    <p>Master the five types of exponent questions that appear repeatedly on the digital SAT.</p>
+                    <p>The exponent rules and question types that keep showing up on the digital SAT.</p>
 
                     <h2>Table of Content</h2>
                     <ul>
@@ -689,12 +1385,21 @@
                             </div>
                             <p>Once the bases match, you can add or subtract the exponents as usual.</p>
 
+                            <h2>Exponential models (growth / decay)</h2>
+                            <p>If something starts at A and multiplies by a factor r each time period t:</p>
+                            <div class="w3-code">
+                                Amount = A · r^t
+                            </div>
+                            <p>Example: $1000 grows 4% per year → 1000 × (1.04)^t. A 4% decrease would use 0.96.</p>
+                            <p>Be careful with shifts in the exponent (like t−1 or t+2) — they change when the growth starts, not the growth rate itself.</p>
+
                             <h2>Practice Tips</h2>
                             <ul>
                                 <li>Identify the base first — everything else depends on it.</li>
                                 <li>If bases differ, force them to match before applying any other rule.</li>
                                 <li>Fractional exponents ↔ radicals is a two-way street; practice both directions.</li>
                                 <li>Never distribute an exponent across a plus or minus sign.</li>
+                                <li>For word problems, write the growth factor as (1 ± rate), not just the rate.</li>
                             </ul>
                         </div>
 
@@ -720,41 +1425,322 @@
 
                 <div id="sub-polynomials" class="sub-section">
                     <h1>Advanced Math: Polynomials &amp; Non-linear</h1>
-                    <p>Analyze higher-degree polynomial functions, factor groupings, and radical/rational equations.</p>
-                    <div class="w3-example">
-                        <p><strong>Factor Theorem:</strong> If (x - c) is a factor of a polynomial P(x), then P(c) = 0.</p>
+                    <p>Factor higher-degree polynomials, use the Factor Theorem, and handle radical/rational equations.</p>
+
+                    <h2>Table of Content</h2>
+                    <ul>
+                        <li>Factor Theorem</li>
+                        <li>Factoring techniques</li>
+                        <li>Radical &amp; rational equations</li>
+</ul>
+
+                    <div class="content-layout">
+                        <div class="notes-column">
+                            <h2>Factor Theorem</h2>
+                            <div class="w3-example">
+                                <p>If (x − c) is a factor of P(x), then P(c) = 0.<br>
+                                Conversely, if P(c) = 0, then (x − c) is a factor.</p>
+                            </div>
+                            <p>Use this to test possible roots quickly or to start factoring.</p>
+
+                            <h2>Factoring Techniques</h2>
+                            <ul>
+                                <li>Greatest common factor (GCF) first</li>
+                                <li>Difference of squares: a² − b² = (a − b)(a + b)</li>
+                                <li>Grouping for four-term polynomials</li>
+                                <li>For quadratics: look for two numbers that multiply to ac and add to b</li>
+                            </ul>
+
+                            <h2>Radical &amp; Rational Equations</h2>
+                            <p>Isolate the radical, then square both sides. Always check for extraneous solutions.</p>
+                            <p>For rational equations, multiply through by the LCD and again check that no denominator becomes zero.</p>
+
+                            
+
+                            
+                        </div>
+                        <div class="videos-column">
+                            <div class="desmos-box" style="margin-top:0;">
+                                <h3>📊 Desmos Tip</h3>
+                                <p>Graph the polynomial and click the x-intercepts to see the real roots instantly. Then use the Factor Theorem to write the factors.</p>
+                            </div>
+                            <h2>▶ YouTube Video Tutorials</h2>
+                            <div class="video-box">
+                                <h4>Full Masterclass Video</h4>
+                                <div class="video-placeholder">
+                                    <strong>Video coming soon</strong>
+                                    <a href="https://www.youtube.com/@Compile1600" target="_blank" style="color:#04AA6D; font-weight:600;">Watch free lessons on YouTube →</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div id="sub-ratios" class="sub-section">
                     <h1>Problem-Solving: Ratios, Rates &amp; Proportions</h1>
-                    <p>Tackle unit conversions, percentages, proportional relationships, and scale factors effortlessly.</p>
-                    <div class="w3-code">
-                        Percent Change = [(New Value - Old Value) / Old Value] × 100
+                    <p>Unit conversions, percentages, proportional relationships, and scale factors.</p>
+
+                    <h2>Table of Content</h2>
+                    <ul>
+                        <li>Setting up proportions</li>
+                        <li>Percent change</li>
+                        <li>Unit rates &amp; conversions</li>
+</ul>
+
+                    <div class="content-layout">
+                        <div class="notes-column">
+                            <h2>Setting Up Proportions</h2>
+                            <p>Write two ratios that are equal. Cross-multiply to solve.</p>
+                            <div class="w3-code">
+                                a/b = c/d &nbsp;→&nbsp; a·d = b·c
+                            </div>
+
+                            <h2>Percent Change</h2>
+                            <div class="w3-code">
+                                Percent Change = [(New − Old) / Old] × 100
+                            </div>
+                            <p>Positive = increase; negative = decrease.</p>
+
+                            <h2>Percents (high-yield)</h2>
+                            <div class="w3-code">
+                                20% of x → 0.2x<br>
+                                Increase x by 20% → 1.2x<br>
+                                Decrease x by 20% → 0.8x<br>
+                                “150% more than 10” → 10 + 1.5×10 = 25 (not 15)
+                            </div>
+                            <p>“n% more than” means multiply by (1 + n/100), not by n/100 alone.</p>
+
+                            <h2>English → math</h2>
+                            <p>“Is” → equals. “Of” → multiply. “Half of 50” → (1/2)×50. Translate word problems into equations before solving.</p>
+
+                            <h2>Unit Rates &amp; Conversions</h2>
+                            <p>Always write the units so they cancel. Convert everything to the same unit before comparing. Density = mass / volume (comes up on geometry/word problems).</p>
+
+                            
+
+                            
+                        </div>
+                        <div class="videos-column">
+                            <div class="desmos-box" style="margin-top:0;">
+                                <h3>📊 Desmos Tip</h3>
+                                <p>Use Desmos to check proportions quickly: type both ratios as fractions and see if they evaluate to the same number.</p>
+                            </div>
+                            <h2>▶ YouTube Video Tutorials</h2>
+                            <div class="video-box">
+                                <h4>Full Masterclass Video</h4>
+                                <div class="video-placeholder">
+                                    <strong>Video coming soon</strong>
+                                    <a href="https://www.youtube.com/@Compile1600" target="_blank" style="color:#04AA6D; font-weight:600;">Watch free lessons on YouTube →</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div id="sub-stats" class="sub-section">
                     <h1>Problem-Solving: Statistics &amp; Probability</h1>
-                    <p>Understand mean, median, mode, standard deviation, scatterplots, and conditional probability tables.</p>
-                    <div class="w3-example">
-                        <p><strong>Standard Deviation:</strong> Measures the spread of data points from the mean. A larger spread yields a higher standard deviation.</p>
+                    <p>Mean, median, mode, standard deviation, scatterplots, and conditional probability.</p>
+
+                    <h2>Table of Content</h2>
+                    <ul>
+                        <li>Center (mean, median, mode)</li>
+                        <li>Spread (standard deviation &amp; range)</li>
+                        <li>Scatterplots &amp; trends</li>
+                        <li>Probability basics</li>
+</ul>
+
+                    <div class="content-layout">
+                        <div class="notes-column">
+                            <h2>Center</h2>
+                            <ul>
+                                <li><strong>Mean</strong> = average (sum ÷ count). Also: sum = mean × count (useful when they give the average and ask for a total).</li>
+                                <li><strong>Median</strong> = middle value when ordered</li>
+                                <li><strong>Mode</strong> = most frequent value</li>
+                            </ul>
+                            <p>Outliers pull the mean more than the median. Example: mean household wealth is much higher than median wealth because a few extremely rich people drag the mean up.</p>
+
+                            <h2>Spread</h2>
+                            <p><strong>Standard deviation</strong> measures how spread out the data are from the mean. Larger spread → higher standard deviation.</p>
+                            <p>Range = maximum − minimum (easy to forget, but it shows up).</p>
+
+                            <h2>Box plots</h2>
+                            <p>Show minimum, 25th percentile (Q1), median (50th), 75th percentile (Q3), and maximum. The “box” is the middle 50% of the data.</p>
+
+                            <h2>Scatterplots &amp; sampling</h2>
+                            <p>Look for direction (positive/negative), form (linear/nonlinear), and strength. The line of best fit summarizes the trend (Desmos regression helps).</p>
+                            <div class="w3-note">
+                                <p><strong>Bias:</strong> A sample must be random and representative. Surveying parents at a playground about number of kids is biased — you’re only talking to people who already have kids at a playground.</p>
+                            </div>
+
+                            <h2>Probability</h2>
+                            <div class="w3-code">
+                                P(event) = favorable outcomes / total outcomes
+                            </div>
+                            <p><strong>Conditional probability</strong> (“given that…”): restrict the total to that subgroup only. Example: P(woman | over 6 ft) uses only the over-6-ft row as the new total, not the whole table.</p>
+
+                            
+
+                            
+                        </div>
+                        <div class="videos-column">
+                            <div class="desmos-box" style="margin-top:0;">
+                                <h3>📊 Desmos Tip</h3>
+                                <p>Enter a list of numbers and use mean(), median(), stdev() to compute statistics instantly. Plot points to explore scatterplots.</p>
+                            </div>
+                            <h2>▶ YouTube Video Tutorials</h2>
+                            <div class="video-box">
+                                <h4>Full Masterclass Video</h4>
+                                <div class="video-placeholder">
+                                    <strong>Video coming soon</strong>
+                                    <a href="https://www.youtube.com/@Compile1600" target="_blank" style="color:#04AA6D; font-weight:600;">Watch free lessons on YouTube →</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div id="sub-geometry" class="sub-section">
                     <h1>Geometry: Lines, Angles &amp; Triangles</h1>
-                    <p>Master parallel lines cut by a transversal, Pythagorean theorem, special right triangles, and polygon interior angle sums.</p>
-                    <div class="w3-code">
-                        Sum of interior angles = (n - 2) × 180°
+                    <p>Parallel lines, transversals, Pythagorean theorem, special right triangles, and polygon angle sums.</p>
+
+                    <h2>Table of Content</h2>
+                    <ul>
+                        <li>Parallel lines &amp; transversals</li>
+                        <li>Triangle angle sum &amp; exterior angles</li>
+                        <li>Pythagorean theorem &amp; special right triangles</li>
+                        <li>Polygon interior angles</li>
+</ul>
+
+                    <div class="content-layout">
+                        <div class="notes-column">
+                            <h2>Parallel Lines &amp; Transversals</h2>
+                            <ul>
+                                <li>Corresponding angles are equal</li>
+                                <li>Alternate interior angles are equal</li>
+                                <li>Same-side interior angles add to 180°</li>
+                                <li>Vertical angles (across from each other) are equal</li>
+                            </ul>
+                            <div class="w3-note">
+                                <p><strong>Slopes:</strong> Parallel lines → same slope. Perpendicular lines → negative reciprocal slopes (e.g. 2 and −1/2).</p>
+                            </div>
+
+                            <h2>Triangles</h2>
+                            <div class="w3-code">
+                                Sum of interior angles = 180°<br>
+                                Exterior angle = sum of the two remote interior angles<br>
+                                Isosceles → two equal sides and two equal base angles<br>
+                                Equilateral → three equal sides and three 60° angles
+                            </div>
+
+                            <h2>Similar vs congruent</h2>
+                            <p><strong>Congruent</strong> = same size and shape (copies). <strong>Similar</strong> = same shape, scaled size (proportional sides, equal angles).</p>
+                            <div class="w3-note">
+                                <p>To prove similarity you can use AA, SSS, or SAS. <strong>SSA is not enough</strong> — the SAT tests this. Matching two sides and a non-included angle does not guarantee similarity.</p>
+                            </div>
+
+                            <h2>Pythagorean Theorem &amp; Special Rights</h2>
+                            <div class="w3-code">
+                                a² + b² = c² (right triangle)<br>
+                                30-60-90 → sides x : x√3 : 2x<br>
+                                45-45-90 → sides x : x : x√2
+                            </div>
+
+                            <h2>Polygon Interior Angles</h2>
+                            <div class="w3-code">
+                                Sum = (n − 2) × 180°
+                            </div>
+                            <p>A quadrilateral is two triangles, so 360°. Don’t memorize every area/volume formula — they’re on the SAT reference sheet.</p>
+
+                            
+
+                            
+                        </div>
+                        <div class="videos-column">
+                            <div class="desmos-box" style="margin-top:0;">
+                                <h3>📊 Desmos Tip</h3>
+                                <p>You can plot points and use the distance formula or draw lines to verify geometric relationships visually.</p>
+                            </div>
+                            <h2>▶ YouTube Video Tutorials</h2>
+                            <div class="video-box">
+                                <h4>Full Masterclass Video</h4>
+                                <div class="video-placeholder">
+                                    <strong>Video coming soon</strong>
+                                    <a href="https://www.youtube.com/@Compile1600" target="_blank" style="color:#04AA6D; font-weight:600;">Watch free lessons on YouTube →</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div id="sub-trig" class="sub-section">
                     <h1>Trigonometry: Circles &amp; Trig Ratios</h1>
-                    <p>Apply SOH-CAH-TOA, radian/degree conversions, and circle equation properties.</p>
-                    <div class="w3-example">
-                        <p><strong>Equation of a Circle:</strong> (x - h)² + (y - k)² = r², where (h, k) is the center and r is the radius.</p>
+                    <p>SOH-CAH-TOA, radian/degree conversions, and the equation of a circle.</p>
+
+                    <h2>Table of Content</h2>
+                    <ul>
+                        <li>SOH-CAH-TOA</li>
+                        <li>Special angles &amp; unit circle basics</li>
+                        <li>Equation of a circle</li>
+                        <li>Radians vs degrees</li>
+</ul>
+
+                    <div class="content-layout">
+                        <div class="notes-column">
+                            <h2>SOH-CAH-TOA</h2>
+                            <div class="w3-code">
+                                sin θ = Opposite / Hypotenuse<br>
+                                cos θ = Adjacent / Hypotenuse<br>
+                                tan θ = Opposite / Adjacent
+                            </div>
+                            <p>Label sides relative to the angle you’re using.</p>
+                            <div class="w3-note">
+                                <p><strong>Complementary angles (SAT favorite):</strong> sin A = cos(90° − A) and cos A = sin(90° − A). In a right triangle, the two acute angles are complements, so sin of one equals cos of the other.</p>
+                            </div>
+
+                            <h2>Equation of a Circle</h2>
+                            <div class="w3-code">
+                                (x − h)² + (y − k)² = r²<br>
+                                Center = (h, k) &nbsp;&nbsp; Radius = r
+                            </div>
+                            <p>This is just the Pythagorean theorem: horizontal distance (x−h) and vertical distance (y−k) form a right triangle with hypotenuse r.</p>
+                            <p>A line tangent to a circle is perpendicular to the radius at the point of contact → negative reciprocal slopes.</p>
+
+                            <h2>Arc length &amp; sector area</h2>
+                            <p>Don’t rely only on formulas. Think in fractions of the full circle:</p>
+                            <div class="w3-code">
+                                Arc length = (central angle / 360°) × circumference<br>
+                                Sector area = (central angle / 360°) × area of circle
+                            </div>
+                            <p>Example: 60° is 1/6 of the circle, so arc length is (1/6) of the circumference.</p>
+
+                            <h2>Inscribed angle</h2>
+                            <p>An inscribed angle is half the central angle that subtends the same arc. If the inscribed angle is 40°, the central angle for that arc is 80°.</p>
+
+                            <h2>Radians &amp; Degrees</h2>
+                            <div class="w3-code">
+                                π radians = 180°<br>
+                                Degrees → radians: multiply by π/180<br>
+                                Radians → degrees: multiply by 180/π
+                            </div>
+
+                            
+
+                            
+                        </div>
+                        <div class="videos-column">
+                            <div class="desmos-box" style="margin-top:0;">
+                                <h3>📊 Desmos Tip</h3>
+                                <p>Graph any circle equation directly. Desmos will show the center and radius visually so you can confirm your algebra.</p>
+                            </div>
+                            <h2>▶ YouTube Video Tutorials</h2>
+                            <div class="video-box">
+                                <h4>Full Masterclass Video</h4>
+                                <div class="video-placeholder">
+                                    <strong>Video coming soon</strong>
+                                    <a href="https://www.youtube.com/@Compile1600" target="_blank" style="color:#04AA6D; font-weight:600;">Watch free lessons on YouTube →</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -765,88 +1751,156 @@
                 <!-- INFORMATION & IDEAS -->
                 <div id="sub-info" class="sub-section active">
                     <h1>Information &amp; Ideas</h1>
-                    <p>Central Ideas, Command of Evidence, Inferences, and Data Interpretation — the core of digital SAT Reading.</p>
+                    <p>Central ideas, details, evidence, inferences, and graphics questions.</p>
 
                     <h2>Table of Content</h2>
                     <ul>
-                        <li>How to answer any Reading question</li>
+                        <li>QAPE Strategy (Central Ideas &amp; Details)</li>
+                        <li>Ways to answer an SAT Reading question</li>
                         <li>The BOSS Method</li>
                         <li>Main Idea &amp; Claims</li>
                         <li>Make Inferences (not Assumptions)</li>
                         <li>Interpret Data / Graphics</li>
                         <li>Cross-Text Connections</li>
                         <li>Reading Fast</li>
+                        <li>Memorize the SAT Words</li>
                     </ul>
 
                     <div class="content-layout">
                         <div class="notes-column">
-                            <h2>How to Answer Any SAT Reading Question</h2>
+                            <h2>QAPE Strategy — Central Ideas &amp; Details</h2>
+                            <p>Four-step process for Central Ideas and Details questions (also works for Cross-Text Connections).</p>
+                            <div class="w3-code" style="font-family:inherit; line-height:1.8;">
+                                <strong>Q</strong> — Question first<br>
+                                <strong>A</strong> — Analyze the passage<br>
+                                <strong>P</strong> — Predict the answer in your own words<br>
+                                <strong>E</strong> — Eliminate choices that don’t match your prediction
+                            </div>
+
+                            <h3>Q — Read the question first</h3>
+                            <p>Start with the question (not the passage). The wording tells you what you’re hunting for:</p>
+                            <ul>
+                                <li><strong>Detail question:</strong> asks for a specific reason, fact, or indication (“What is one reason…”, “What does the text indicate about…”). You know exactly what to look for.</li>
+                                <li><strong>Central idea / main idea question:</strong> asks what the text is mainly about, or the main idea of the passage.</li>
+                            </ul>
+
+                            <h3>A — Analyze the passage</h3>
+                            <ul>
+                                <li><strong>Detail:</strong> You can often skim. Scan for the key words from the question, then read that sentence carefully.</li>
+                                <li><strong>Main idea (nonfiction):</strong> Main ideas often live near the beginning or the end of the short digital-SAT passage. Still read the whole thing when it’s short.</li>
+                                <li><strong>Main idea (fiction):</strong> Not always at the start or end. Read the whole excerpt and ask yourself: <em>“What happened?”</em> or <em>“What’s going on here?”</em></li>
+                            </ul>
+                            <div class="w3-note">
+                                <p>A closing “call to action” or suggestion (e.g. “other moons should be examined…”) is usually <em>not</em> the main idea — it’s a follow-on, not the core of the text.</p>
+                            </div>
+
+                            <h3>P — Predict</h3>
+                            <p>Before looking at the choices, put the answer in <strong>your own words</strong>. Underlining helps, but paraphrasing forces real understanding.</p>
+                            <p>Examples of simple predictions:</p>
+                            <ul>
+                                <li>Detail: “to understand old culture / rituals / trade”</li>
+                                <li>Main idea: “scientists found a wobble that may mean a hidden ocean”</li>
+                                <li>Fiction: “the narrator got lost”</li>
+                            </ul>
+
+                            <h3>E — Eliminate</h3>
+                            <p>Cross out any choice that does not match your prediction. Common wrong-answer patterns:</p>
+                            <ul>
+                                <li>Something the text never says</li>
+                                <li>Extreme wording (always, never, first to confirm…)</li>
+                                <li>A detail that is true but not what the question asked</li>
+                                <li>A suggestion or side comment treated as the main idea</li>
+                            </ul>
+                            <p>If one choice matches your prediction closely, pick it and move on. If you’re unsure, eliminate the rest first, then choose.</p>
+
+                            <h2>Ways to Answer an SAT Reading Question</h2>
                             <ol style="margin-left:20px; margin-bottom:15px; color:#495057;">
-                                <li><strong>Read the question first</strong> — know what details to look for.</li>
-                                <li><strong>Read the blurb</strong> — get quick background.</li>
-                                <li><strong>Read the passage</strong> and highlight anything that relates to the question.</li>
-                                <li><strong>Create your own solution</strong> before looking at the choices.</li>
-                                <li><strong>Match</strong> the answer choice that best fits your solution.</li>
+                                <li><strong>First read the question</strong> — it tells you what details to pay attention to while reading.</li>
+                                <li><strong>Next read the blurb</strong> — useful background information.</li>
+                                <li><strong>Then read the passage</strong> and highlight details that relate to the question.</li>
+                                <li><strong>Come up with your own solution</strong> for the question.</li>
+                                <li><strong>Finally</strong> see which answer choice matches your solution.</li>
                             </ol>
 
                             <h2>The BOSS Method</h2>
-                            <div class="w3-example">
-                                <p><strong>B</strong>uild your own solution first — never look at the answers until you have one.</p>
-                                <p><strong>O</strong>nly prove answers wrong. Treat every choice as “guilty until proven innocent.”</p>
-                                <p><strong>S</strong>upport everything from the passage. Even your BOSS solution must be text-based.</p>
-                                <p><strong>S</strong>top and ask: “Does the text actually mention ____?”</p>
-                            </div>
-
-                            <div class="w3-note">
-                                <p><strong>Extreme language is almost never correct.</strong> Avoid answers with:</p>
-                                <ul style="margin-bottom:8px;">
-                                    <li>Always, never, every, everyone, everything, only, unique</li>
-                                    <li>Words ending in “-ly” that sound absolute (completely, totally, entirely…)</li>
-                                </ul>
-                                <p style="margin-bottom:0;">Also avoid choices that simply copy phrases from the passage or are far too specific.</p>
-                            </div>
+                            <ol style="margin-left:20px; margin-bottom:15px; color:#495057;">
+                                <li>When solving your own SAT reading questions, create your own solution <strong>before</strong> you look at the answers. Try your best not to look at the answers.</li>
+                                <li>Try to prove that each answer choice is <em>incorrect</em> rather than correct. “Every answer choice is guilty unless proven innocent.”</li>
+                                <li>All answers must be proven from the passage — even your BOSS solution.</li>
+                                <li>If any doubts, ask yourself: <strong>“Does the text mention ____?”</strong></li>
+                                <li>Extreme answers are never an answer. Only choose ones with less absolute language.
+                                    <ul style="margin-top:6px;">
+                                        <li>Always</li>
+                                        <li>Every-prefix (everyone, everything, everywhere, etc.)</li>
+                                        <li>Only</li>
+                                        <li>Some (when used as absolute)</li>
+                                        <li>Unique</li>
+                                        <li>Also avoid extreme words that end in “-ly” (completely, totally, entirely…)</li>
+                                    </ul>
+                                </li>
+                                <li>Avoid answer choices that simply reuse phrases from the passage.</li>
+                                <li>Ignore answers that are too specific.</li>
+                            </ol>
 
                             <h2>Main Idea &amp; Claims</h2>
-                            <p>The main idea is what the passage is mainly talking about. It is usually found in the first 1–3 sentences or the final sentence.</p>
-                            <p>Write a short, simple version of the main idea in your own words — it does not need to be long.</p>
-                            <p>A <strong>claim</strong> is similar to the main idea and is always stated in the passage. Highlight the claim and base your BOSS solution on it.</p>
+                            <p><strong>What is the main idea:</strong> what the passage is mainly talking about — broad, not a single detail.</p>
+
+                            <h3>Three places main ideas live (nonfiction)</h3>
+                            <div class="w3-code" style="font-family:inherit; line-height:1.75;">
+                                <strong>1. Beginning</strong> — often the first sentence is a broad statement. Skim the rest to confirm nothing bigger shows up later.<br><br>
+                                <strong>2. End</strong> — when the passage opens like a story or history (“Having written… in 1791…”), the main idea often lands in the last sentence. Watch transition words like <em>but</em> / <em>however</em> — they usually point to what matters most.<br><br>
+                                <strong>3. Beginning + end together</strong> — opening sets up an old view (“for centuries people thought X”); the close gives the new finding (“recent research shows Y”). Your prediction should combine both halves.
+                            </div>
+
+                            <h3>Fiction &amp; poetry</h3>
+                            <p>Read the whole excerpt and synthesize. Ask: “What happened?” or “What’s going on?” Main idea is rarely a single line you can underline. The second sentence sometimes gives useful context (setting, who the characters are).</p>
+
+                            <h3>Wrong-answer traps on main idea</h3>
+                            <ul>
+                                <li><strong>Too narrow</strong> — a real detail from the passage, but not the overall idea</li>
+                                <li><strong>Distorted / extreme</strong> — takes something true and pushes it too far (“majority of the best arguments,” “first to confirm…”)</li>
+                                <li><strong>Opposite</strong> — flips what the text actually says</li>
+                                <li><strong>Missing the key figure</strong> — leaves out the person or idea your prediction centered on</li>
+                            </ul>
+                            <p>A call to action or side suggestion at the end is usually <em>not</em> the main idea — it’s a follow-on.</p>
+                            <p>The <strong>claim</strong> is similar to the main idea and must be supported in the passage. Highlight it and write your own prediction (QAPE / BOSS) from what you highlighted.</p>
 
                             <h2>Make Inferences — Not Assumptions</h2>
                             <div class="w3-code">
-                                Inference  = educated guess based on evidence in the passage<br>
-                                Assumption = idea that is not supported by the passage
+                                Inference  = educated guess based on evidence from the SAT Reading passage<br>
+                                Assumption = not based on evidence from the passage
                             </div>
                             <div class="w3-example">
                                 <p>Text: “Mark is tall and athletic.”</p>
                                 <p><em>Assumption (wrong):</em> Mark plays basketball.</p>
-                                <p style="margin-bottom:0;"><em>Inference (safe):</em> Mark is in good physical shape.</p>
+                                <p style="margin-bottom:0;"><em>Inference (safe):</em> Mark is physically in good shape.</p>
                             </div>
 
                             <h2>Interpret Data / Graphics</h2>
                             <ol style="margin-left:20px; margin-bottom:15px; color:#495057;">
-                                <li>Read the title of the graphic.</li>
-                                <li>Read the column/row headers (table) or axis titles (graph).</li>
-                                <li>Interpret one clear data point or row before answering.</li>
+                                <li>Read the title of the informational graphic.</li>
+                                <li>Read the column and row headers (if table) or titles of the axes (if graph).</li>
+                                <li>Interpret one row (table) or one data point / bar (graph) before answering.</li>
                             </ol>
 
                             <h2>Cross-Text Connections</h2>
-                            <p>Summarize each passage as simply as possible so that your summary answers what the question is asking you to compare.</p>
-                            <p>Process: Read the question → read both passages → write a short BOSS solution that captures the relationship.</p>
+                            <p>Summarize each passage as simply as possible so that the summary answers what the question wants you to compare from both passages.</p>
+                            <p>Process: Read the question first → read the passages → write your BOSS solution (summarize the relationship).</p>
 
                             <h2>Reading Fast</h2>
-                            <ul>
-                                <li>Read one real SAT passage every day and force yourself to understand it.</li>
-                                <li>Practice at a pace that is faster than comfortable but still allows comprehension.</li>
-                            </ul>
+                            <ol style="margin-left:20px; margin-bottom:15px; color:#495057;">
+                                <li>Read one SAT passage a day and try to comprehend it.</li>
+                                <li>Practice reading at a fast pace that you can still comprehend.</li>
+                            </ol>
 
-                            <h2>Vocabulary Tip</h2>
-                            <p>Repeat each high-frequency SAT word and its synonyms 7 times every day. The words will stick automatically.</p>
+                            <h2>Memorize the SAT Words</h2>
+                            <p>Repeat each word and its synonyms <strong>7 times each every day</strong> — you will automatically remember them.</p>
                         </div>
 
                         <div class="videos-column">
                             <div class="desmos-box" style="margin-top:0; background:#fff3cd; border-left-color:#ffc107;">
                                 <h3>⚡ Quick Strategy</h3>
-                                <p>Always create your own answer first (BOSS). Then eliminate extreme, unsupported, or too-specific choices. The correct answer is almost always the most boring, text-supported option.</p>
+                                <p><strong>QAPE:</strong> Question → Analyze → Predict → Eliminate. Pair it with BOSS: write your own answer before looking at choices, then cut anything extreme or unsupported. The right answer is almost always the most boring, text-backed option.</p>
                             </div>
 
                             <h2>▶ YouTube Video Tutorials</h2>
@@ -1064,78 +2118,113 @@
     </div>
 
     <footer>
-        <p>Free Digital SAT lessons by <a href="https://www.youtube.com/@Compile1600" target="_blank">Compile1600</a> 🚀 — Subscribe for new problem walkthroughs every week</p>
+        <p style="margin-bottom:6px; font-weight:600; color:#fff;">Compile1600</p>
+        <p style="font-size:13px; margin-bottom:12px; color:#aaa;">Personal digital SAT study project · HTML, CSS, JavaScript</p>
+        <p style="font-size:13px; margin-bottom:0;">
+            <a href="#" onclick="switchPage('home'); return false;">Home</a> ·
+            <a href="#" onclick="switchPage('math', 'functions'); return false;">Math</a> ·
+            <a href="#" onclick="switchPage('english', 'info'); return false;">English</a> ·
+            <a href="#" onclick="switchPage('bank'); return false;">Question Bank</a> ·
+            <a href="#" onclick="switchPage('resources'); return false;">Resources</a> ·
+            <a href="https://www.youtube.com/@Compile1600" target="_blank">YouTube</a>
+        </p>
     </footer>
 
     <script>
+        // page navigation, filters, modals, streak
+        // plain JS only - no libraries
+
         function toggleSidebar() {
-            const sidebar = document.getElementById('main-sidebar');
+            var sidebar = document.getElementById('main-sidebar');
             sidebar.classList.toggle('closed');
         }
 
         function switchPage(pageId, defaultSub) {
-            document.querySelectorAll('.page-section').forEach(page => page.classList.remove('active'));
-            document.querySelectorAll('.topnav-links button').forEach(btn => btn.classList.remove('active'));
-
-            const targetPage = document.getElementById('page-' + pageId);
-            if (targetPage) {
-                targetPage.classList.add('active');
+            // hide all pages
+            var pages = document.querySelectorAll('.page-section');
+            for (var i = 0; i < pages.length; i++) {
+                pages[i].classList.remove('active');
             }
 
-            const targetBtn = document.getElementById('nav-page-' + pageId);
-            if (targetBtn) {
-                targetBtn.classList.add('active');
+            // unhighlight nav buttons
+            var btns = document.querySelectorAll('.topnav-links button');
+            for (var i = 0; i < btns.length; i++) {
+                btns[i].classList.remove('active');
             }
 
-            // Handle sidebar visibility depending on page
-            const sidebar = document.getElementById('main-sidebar');
+            // show the one we want
+            var page = document.getElementById('page-' + pageId);
+            if (page) page.classList.add('active');
+
+            var btn = document.getElementById('nav-page-' + pageId);
+            if (btn) btn.classList.add('active');
+
+            // sidebar
+            var sidebar = document.getElementById('main-sidebar');
+            var sidebars = document.querySelectorAll('.sidebar-content');
+            for (var i = 0; i < sidebars.length; i++) {
+                sidebars[i].style.display = 'none';
+            }
+
             if (pageId === 'math' || pageId === 'english') {
                 sidebar.style.display = 'block';
-                document.querySelectorAll('.sidebar > div').forEach(sb => sb.classList.remove('active'));
-                const targetSidebar = document.getElementById('sidebar-' + pageId);
-                if (targetSidebar) {
-                    targetSidebar.classList.add('active');
-                }
-                if (defaultSub) {
-                    switchSubTab(pageId, defaultSub);
-                }
+                sidebar.classList.remove('closed');
+                var side = document.getElementById('sidebar-' + pageId);
+                if (side) side.style.display = 'block';
+                if (defaultSub) switchSubTab(pageId, defaultSub);
             } else {
                 sidebar.style.display = 'none';
             }
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            window.scrollTo(0, 0);
         }
 
         function switchSubTab(pageId, subId) {
-            const parentPage = document.getElementById('page-' + pageId);
-            if (parentPage) {
-                parentPage.querySelectorAll('.sub-section').forEach(sub => sub.classList.remove('active'));
-                const targetSub = document.getElementById('sub-' + subId);
-                if (targetSub) {
-                    targetSub.classList.add('active');
+            var parent = document.getElementById('page-' + pageId);
+            if (!parent) return;
+
+            var subs = parent.querySelectorAll('.sub-section');
+            for (var i = 0; i < subs.length; i++) {
+                subs[i].classList.remove('active');
+            }
+            var target = document.getElementById('sub-' + subId);
+            if (target) target.classList.add('active');
+
+            // try to highlight the sidebar link
+            var sb = document.getElementById('sidebar-' + pageId);
+            if (sb) {
+                var links = sb.querySelectorAll('a');
+                for (var i = 0; i < links.length; i++) {
+                    links[i].classList.remove('active-link');
                 }
+                var link = sb.querySelector('a[href="#' + subId + '"]');
+                if (link) link.classList.add('active-link');
             }
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            window.scrollTo(0, 0);
         }
 
-        // Fullscreen Modal Functions
-        function openModal(imgElement) {
-            const modal = document.getElementById('img-modal');
-            const modalImg = document.getElementById('modal-img-content');
+        // image popup
+        function openModal(img) {
+            var modal = document.getElementById('img-modal');
+            var modalImg = document.getElementById('modal-img-content');
             modal.style.display = 'flex';
-            modalImg.src = imgElement.src;
+            modalImg.src = img.src;
+            document.body.style.overflow = 'hidden';
         }
 
-        function closeModal(event, forceClose = false) {
-            const modal = document.getElementById('img-modal');
-            if (forceClose || event.target.id === 'img-modal') {
+        function closeModal(e, forceClose) {
+            var modal = document.getElementById('img-modal');
+            if (forceClose || (e && e.target && e.target.id === 'img-modal')) {
                 modal.style.display = 'none';
+                document.body.style.overflow = '';
             }
         }
 
-        // Question of the Day answer toggle (supports math & english)
+        // qotd show/hide
         function toggleAnswer(section) {
-            const answer = document.getElementById('qotd-answer-' + section);
-            const btn = document.getElementById('qotd-btn-' + section);
+            var answer = document.getElementById('qotd-answer-' + section);
+            var btn = document.getElementById('qotd-btn-' + section);
             if (answer.style.display === 'none') {
                 answer.style.display = 'block';
                 btn.textContent = 'Hide Answer';
@@ -1145,10 +2234,190 @@
             }
         }
 
-        // Initialize display state on load (start on home page)
-        window.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('main-sidebar').style.display = 'none';
+        // bank answer button
+        function toggleBank(btn) {
+            var ans = btn.nextElementSibling;
+            if (ans.style.display === 'none' || ans.style.display === '') {
+                ans.style.display = 'block';
+                btn.textContent = 'Hide answer';
+            } else {
+                ans.style.display = 'none';
+                btn.textContent = 'Show correct answer';
+            }
+        }
+
+        // full screen question
+        function openQModal(card) {
+            var body = document.getElementById('q-modal-body');
+            var clone = card.cloneNode(true);
+            clone.removeAttribute('onclick');
+            clone.style.cursor = 'default';
+            clone.style.boxShadow = 'none';
+            clone.style.border = 'none';
+            clone.style.margin = '0';
+            clone.style.padding = '0';
+
+            var btn = clone.querySelector('button');
+            var ans = clone.querySelector('.bank-ans');
+            if (btn && ans) {
+                btn.onclick = function(e) {
+                    e.stopPropagation();
+                    if (ans.style.display === 'none' || ans.style.display === '') {
+                        ans.style.display = 'block';
+                        btn.textContent = 'Hide answer';
+                    } else {
+                        ans.style.display = 'none';
+                        btn.textContent = 'Show correct answer';
+                    }
+                };
+                ans.style.display = 'none';
+                btn.textContent = 'Show correct answer';
+            }
+
+            body.innerHTML = '';
+            body.appendChild(clone);
+            document.getElementById('q-modal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeQModal(e, force) {
+            if (force || e.target.id === 'q-modal') {
+                document.getElementById('q-modal').style.display = 'none';
+                document.body.style.overflow = '';
+            }
+        }
+
+        // press escape to close popups
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                var qm = document.getElementById('q-modal');
+                var im = document.getElementById('img-modal');
+                if (qm && qm.style.display === 'flex') {
+                    qm.style.display = 'none';
+                    document.body.style.overflow = '';
+                }
+                if (im && im.style.display === 'flex') {
+                    im.style.display = 'none';
+                    document.body.style.overflow = '';
+                }
+            }
         });
+
+        // filters for question bank
+        var bankDomain = 'all';
+        var bankDiff = 'all';
+
+        function applyBankFilters() {
+            var cards = document.querySelectorAll('.bank-q');
+            var shown = 0;
+            for (var i = 0; i < cards.length; i++) {
+                var c = cards[i];
+                var okDomain = (bankDomain === 'all' || c.getAttribute('data-domain') === bankDomain);
+                var okDiff = (bankDiff === 'all' || c.getAttribute('data-diff') === bankDiff);
+                if (okDomain && okDiff) {
+                    c.style.display = 'block';
+                    shown = shown + 1;
+                } else {
+                    c.style.display = 'none';
+                }
+            }
+
+            var el = document.getElementById('bank-count');
+            if (el) {
+                if (shown === 1) el.textContent = '1 question';
+                else el.textContent = shown + ' questions';
+            }
+            var empty = document.getElementById('bank-empty');
+            if (empty) {
+                if (shown === 0) empty.style.display = 'block';
+                else empty.style.display = 'none';
+            }
+        }
+
+        function filterBank(domain, btn) {
+            bankDomain = domain;
+            var filters = document.querySelectorAll('.bank-filter');
+            for (var i = 0; i < filters.length; i++) {
+                filters[i].style.background = '#495057';
+            }
+            if (btn) btn.style.background = '#04AA6D';
+            applyBankFilters();
+        }
+
+        function filterDiff(diff, btn) {
+            bankDiff = diff;
+            var filters = document.querySelectorAll('.diff-filter');
+            for (var i = 0; i < filters.length; i++) {
+                filters[i].style.background = '#495057';
+            }
+            if (btn) btn.style.background = '#04AA6D';
+            applyBankFilters();
+        }
+
+        // streak - just uses localStorage so it stays on this browser
+        function getStreakData() {
+            var raw = localStorage.getItem('c1600_streak');
+            if (!raw) return {};
+            try {
+                return JSON.parse(raw);
+            } catch (e) {
+                return {};
+            }
+        }
+
+        function markTodayDone() {
+            var data = getStreakData();
+            var today = new Date().toISOString().slice(0, 10);
+            if (data.last === today) {
+                alert('Already counted for today.');
+                return;
+            }
+            var yesterday = new Date();
+            yesterday.setDate(yesterday.getDate() - 1);
+            var ystr = yesterday.toISOString().slice(0, 10);
+            if (data.last === ystr) {
+                data.count = (data.count || 0) + 1;
+            } else {
+                data.count = 1;
+            }
+            data.last = today;
+            localStorage.setItem('c1600_streak', JSON.stringify(data));
+            updateStreakUI();
+        }
+
+        function updateStreakUI() {
+            var el = document.getElementById('streak-display');
+            if (!el) return;
+            var data = getStreakData();
+            var n = data.count || 0;
+            if (n === 1) el.textContent = '1 day';
+            else el.textContent = n + ' days';
+        }
+
+        function copySiteLink() {
+            var url = window.location.href.split('#')[0];
+            var fb = document.getElementById('copy-feedback');
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(url).then(function() {
+                    if (fb) {
+                        fb.style.display = 'block';
+                        setTimeout(function() { fb.style.display = 'none'; }, 2000);
+                    }
+                }).catch(function() {
+                    prompt('Copy this:', url);
+                });
+            } else {
+                prompt('Copy this:', url);
+            }
+        }
+
+        // start on home, hide sidebar
+        window.onload = function() {
+            document.getElementById('main-sidebar').style.display = 'none';
+            updateStreakUI();
+            applyBankFilters();
+        };
     </script>
+
 </body>
 </html>
